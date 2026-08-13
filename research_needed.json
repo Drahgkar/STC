@@ -1,0 +1,112 @@
+{
+  "_comment": "Sources flagged during technique-expansion work as needing dedicated research before adding more techniques - typically because an assumption from a similar/same-named source on another platform can't be safely reused without verification. Each entry should be resolved (researched and either expanded or explicitly left alone with a documented reason) before being removed from this file. Do not delete an entry just because it was mentioned in conversation - only when it's been actually researched.",
+  "flagged": [
+    {
+      "source": "linux/endpoint_os/sysmon_linux",
+      "flagged_reason": "Sysmon for Linux is a genuinely distinct Microsoft product from Windows Sysmon (different codebase, different platform constraints). This entry was left at its original 2 techniques (T1059, T1543) while windows/endpoint_os/sysmon grew to 48+ techniques during batch expansion work. Extending the same technique set assumes feature parity between the two products, which had not been verified.",
+      "what_to_verify": "Which Sysmon event types Sysmon for Linux actually implements (it does NOT implement all 30 Windows Sysmon event types - confirm which subset applies), and whether any Linux-specific event types exist that Windows Sysmon doesn't have.",
+      "status": "resolved",
+      "resolution": "Confirmed via search: Sysmon for Linux is a real, Microsoft-authored, eBPF-based product (co-authored by Kevin Sheldrake, official Sysinternals release), using the same XML schema as Windows Sysmon. Multiple independent sources explicitly confirm process creation and network connection monitoring are supported. One source explicitly states 'not all Windows Sysmon event types are available on Linux' - confirming NOT to assume full parity. Registry monitoring specifically does not apply (Linux has no Windows registry). Did not obtain the exact enumerated event-type list for the current version, so only added techniques tied to the two explicitly-confirmed capabilities (process creation, network connections) - not registry/DNS/file-stream-hash-specific techniques, which remain unconfirmed for this product and were left off."
+    },
+    {
+      "source": "macos/endpoint_os/unified_log",
+      "flagged_reason": "ULS (Apple Unified Logging, os_log) is macOS Windows-Event-Log-equivalent in breadth - confirmed via search to consolidate kernel, system service, daemon, application, and security subsystem messages (including authentication events per com.apple.security subsystem) into one queryable system. Only 4 techniques currently assigned (T1059, T1543, T1547.006, T1014), added opportunistically during kext research rather than a dedicated pass.",
+      "what_to_verify": "A dedicated research pass on ULS subsystems/predicates (com.apple.security, process execution via com.apple.xpc.launchd, network-adjacent subsystems) to identify what specific technique coverage is defensible, similar to the dedicated passes already done for Windows Security Event Log and Sysmon.",
+      "status": "resolved",
+      "resolution": "Confirmed via multiple sources including a GitHub resource specifically mapping ULS predicates to MITRE tactics: com.apple.opendirectoryd (category auth) logs password-change events (T1098 Account Manipulation), com.apple.loginwindow logs authentication-failure events (T1110 Brute Force). Both added. Not an exhaustive pass of every ULS subsystem (e.g. MDM profile installation via com.apple.ManagedClient was found but not mapped due to ambiguity about the correct technique), but a real, sourced expansion from 4 to 6 techniques."
+    },
+    {
+      "source": "network device platforms (cisco_ios, paloalto_panos, fortinet_fortios) - system/syslog entries",
+      "flagged_reason": "T1601 (Modify System Image) and sub-techniques T1601.001/.002 describe firmware/OS image patching or downgrading on network devices - a real, documented attack pattern. Whether and how each vendor logs firmware/image change events to their standard syslog/system log varies by platform and was not verified in this session.",
+      "what_to_verify": "Whether Cisco IOS syslog and Fortinet FortiOS logs specifically capture firmware/image upgrade, activation, or rollback events, distinct from general configuration change logging.",
+      "status": "partially_resolved",
+      "resolution": "Confirmed via a Palo Alto Networks community forum thread: PAN-OS logs firmware/software update activity (including the exact update-server URL) via the SYSTEM log category, which is already an established source in this catalog - added T1601 there. No equally specific confirmation was found for Cisco IOS or Fortinet FortiOS firmware-logging conventions in this session, so those remain open."
+    },
+    {
+      "source": "macos/endpoint_os/bsm_audit",
+      "flagged_reason": "T1548.006 (TCC Manipulation) requires monitoring of the macOS TCC.db (Transparency, Consent, and Control database). No verified evidence was found in this session that BSM audit captures TCC database modifications specifically.",
+      "what_to_verify": "Whether TCC.db tampering (direct SQLite modification, or abuse of the tccutil/sqlite3 command line against it) generates any BSM audit event, or whether this requires a different macOS-specific monitoring mechanism (e.g. Endpoint Security framework FSEvents on the TCC.db file path).",
+      "status": "resolved",
+      "resolution": "Confirmed via multiple independent sources including a published Elastic detection rule with exact query logic: TCC.db tampering is detected via process-creation monitoring - specifically sqlite3 process invocation with command-line arguments referencing the TCC.db path. This fits the already-established BSM audit process-execution evidence. Added to macos/endpoint_os/bsm_audit."
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "T1092 (Communication Through Removable Media) requires USB/removable-media monitoring (e.g. device insertion events, file transfer to/from removable volumes). This catalog currently has no dedicated source for this - not covered by any existing Windows/Linux/macOS endpoint entry. Also covers T1052 (Exfiltration Over Physical Medium) - the same underlying gap: no removable-media monitoring source exists in this catalog. Also covers T1200 (Hardware Additions) - same underlying gap, malicious physical device insertion. Also covers T1025 (Data from Removable Media) - same underlying gap.",
+      "what_to_verify": "Whether Windows Security Event Log (4663/4656 with device-related object access) or a dedicated USB monitoring tool/Sysmon config extension could provide this coverage, or whether a new dedicated source category is warranted.",
+      "status": "resolved",
+      "resolution": "Confirmed via Microsoft own official documentation and multiple independent forensics sources: Event ID 6416 (Security log, requires Audit PNP Activity policy) provides device-insertion detection with vendor/product IDs (T1200), and Event ID 4663 (Security log, requires Audit Removable Storage/Object Access policy) provides file-level activity on the device itself (T1025, T1052, T1092). Both events live in the EXISTING windows/endpoint_os/security source - no new source category was needed, just documenting the additional non-default audit subcategories. Resolves T1092, T1052, T1200, T1025 all at once."
+    },
+    {
+      "source": "(placement uncertain)",
+      "flagged_reason": "T1668 (Exclusive Control) is a Persistence-tactic technique this project has not researched. No confident evidence-based placement was identified in this session.",
+      "what_to_verify": "What T1668 actually describes and which existing or new source would provide observable evidence for it.",
+      "status": "resolved",
+      "resolution": "Confirmed via MITRE own T1668 page: describes an adversary closing the door behind them after compromise - patching the exploited vulnerability, disabling other vulnerable services, stripping privileges from other accounts, or killing competing malware/cryptominers already on the system. All four behaviors fit already-established evidence (Sysmon/Security process termination and service-stop evidence, Linux auditd). Added to sysmon, security, and linux audit_daemon."
+    },
+    {
+      "source": "(placement uncertain)",
+      "flagged_reason": "T1674 (Input Injection) could describe either a physical HID-level attack (similar to the already-flagged removable-media/hardware-insertion gap) or a software-level API abuse (e.g. SendInput). No strong specific evidence for either placement was identified in this session.",
+      "what_to_verify": "What T1674 specifically describes in its full MITRE definition, and whether it fits existing process/API-level evidence or requires the same physical-device monitoring gap already flagged.",
+      "status": "resolved",
+      "resolution": "Confirmed via MITRE own T1674 page: two distinct angles - software keystroke simulation via Windows APIs (SendInput, keybd_event, PostMessage), and physical HID device emulation via malicious USB. The software angle fits already-established Sysmon/Security process-and-API-level evidence and was added there. The physical-USB angle remains covered by the existing removable-media/hardware-insertion research_needed flag - no separate action needed."
+    },
+    {
+      "source": "(placement uncertain)",
+      "flagged_reason": "T1684 (Social Engineering) is tagged under the Stealth tactic as a broad umbrella technique. The concrete, specific social-engineering techniques already tracked in ATT&CK (T1566 Phishing, T1621 MFA Request Generation, T1598 Phishing for Information) are already separately covered by real sources in this catalog. No distinct log-observable evidence for T1684 itself (as opposed to its more specific sibling techniques) was identified in this session.",
+      "what_to_verify": "Whether T1684 genuinely requires its own distinct source/evidence, or whether it is adequately represented by its more specific sub-techniques already covered elsewhere in the catalog.",
+      "status": "resolved",
+      "resolution": "Confirmed via MITRE own T1684 page and its v19 release notes: Social Engineering is a new parent technique consolidating the former T1656 (Impersonation) and T1672 (Email Spoofing) as sub-techniques T1684.001/.002. Both are directly observable via email security gateways (spoofed-sender/SPF-DKIM-DMARC detection is a core email gateway function). Added to all three email security vendors."
+    },
+    {
+      "source": "(placement uncertain)",
+      "flagged_reason": "T1685.003 (Modify or Spoof Tool UI) describes tampering with a security tool own displayed status/UI to deceive an analyst. By definition this deceives whoever is looking directly at that tool, so external log sources may not capture it distinctly from the tool tampering already covered by the parent T1685 evidence.",
+      "what_to_verify": "Whether any specific log event distinguishes UI-spoofing from general tool tampering, or whether this genuinely has no distinct observable signature beyond what T1685 base already covers.",
+      "status": "unresolved"
+    },
+    {
+      "source": "(no existing source - potential future additions)",
+      "flagged_reason": "T1213.003 (Code Repositories), T1213.004 (CRM Software), T1213.005 (Messaging Applications), T1213.006 (Databases) each describe a distinct data-repository type this catalog has no dedicated source for - GitHub/GitLab audit logs, Salesforce/CRM audit logs, Slack/Teams audit logs, and database audit logs respectively. Confluence/SharePoint (the current T1213 sources) represent document/wiki platforms, a genuinely different technology - placing these sub-techniques there would misattribute the evidence.",
+      "what_to_verify": "Whether Salesforce EventLogFile/Event Monitoring API and a generic database audit-logging category (e.g. native SQL Server/PostgreSQL/MySQL audit logs) are worth adding as dedicated sources.",
+      "status": "resolved",
+      "resolution": "Confirmed official audit-log APIs for GitHub (REST/GraphQL Audit Log API), GitLab (Audit Events API), and Slack (Audit Logs API) - all directly from each vendor own docs. Built source_control (GitHub, GitLab) resolving T1213.003, and team_messaging (Slack) resolving T1213.005. Did NOT find an equally confirmed source for T1213.004 (CRM/Salesforce) or T1213.006 (Databases) in this session - those remain open. UPDATE: T1213.004 (CRM) and T1213.006 (Databases) were subsequently resolved too, via new crm_platforms (Salesforce EventLogFile API) and database_platforms (SQL Server Security Audit) sources. All four sub-techniques are now covered - this item is fully resolved."
+    },
+    {
+      "source": "(placement uncertain)",
+      "flagged_reason": "T1036.012 (Browser Fingerprint) describes malware evading a WEBSITE bot-detection mechanism by spoofing browser fingerprint data - this is arguably something a website operator observes about incoming traffic, not something the victim organization own endpoint/network logs would show about outbound activity.",
+      "what_to_verify": "Whether this is genuinely observable from a victim-side log source, or only from the perspective of the site being targeted.",
+      "status": "unresolved"
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "T1598.004 (Spearphishing Voice, under Phishing for Information) and the sibling T1566.004 (Spearphishing Voice, under Phishing) both describe voice/phone-based social engineering (vishing). No call-logging or telephony source exists in this catalog to observe this.",
+      "what_to_verify": "Whether a telephony/UCaaS call-logging source category (e.g. Microsoft Teams Phone, RingCentral, Zoom Phone call detail records) would be a worthwhile future addition.",
+      "status": "resolved",
+      "resolution": "Confirmed Microsoft Teams exposes call records via Graph API /callrecords endpoint, and Zoom Phone exposes Call Detail Records via its REST Phone Logs API. Both are metadata-only (caller/callee/timestamp/duration, not content) - sufficient to detect vishing via anomalous/spoofed caller patterns. Built a new unified_communications platform with both products."
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "T1505.002 (Transport Agent) is an on-premises Exchange Server-specific persistence mechanism. This catalog only has cloud M365/Defender for Office 365 email sources, not an on-prem Exchange Server source - a genuinely different product.",
+      "what_to_verify": "Whether an on-prem Exchange Server log source category is worth adding for organizations still running hybrid or fully on-prem Exchange.",
+      "status": "resolved",
+      "resolution": "Confirmed via Microsoft own official Exchange documentation: on-prem Exchange Server has a native Agent Logging transport-log feature specifically designed to record actions performed on messages by transport agents. Added as a new exchange_server service under the existing windows platform (Exchange runs on Windows Server, same precedent as the earlier FSRM addition)."
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "T0862 (ICS Supply Chain Compromise) describes compromise of OT hardware/firmware/software during manufacturing or the vendor supply chain. This catalog has no dedicated OT patch-management or vendor-software-delivery monitoring source (analogous to the Enterprise SCCM/Ansible-based partial resolution of T1195.002) that could observe a compromised update package before it reaches an OT asset.",
+      "what_to_verify": "Whether OT-specific patch/firmware management platforms (e.g. vendor update servers, OT-specific SCCM-equivalents) produce auditable delivery logs that could provide partial coverage, similar to the Enterprise T1195.002 resolution.",
+      "status": "unresolved"
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "T1451 (SIM Card Swap) is a carrier/telco-level event (reassigning a phone number to a new physical SIM or eSIM). No source in this catalog has visibility into carrier-side account systems.",
+      "what_to_verify": "Whether telco/carrier APIs (e.g. number-porting or SIM-change notification webhooks some carriers offer to enterprise customers) could provide this evidence, or whether it stays out of scope as carrier-side-only.",
+      "status": "unresolved"
+    },
+    {
+      "source": "(placement uncertain)",
+      "flagged_reason": "T1430.001 (Remote Device Management Services) - abuse of legitimate device-finding/remote-management APIs (e.g. Find My Device) for location tracking. Possible MDM angle (the legitimate remote-locate feature itself is an MDM capability) was not directly confirmed as a distinct abuse-detection signal in this session.",
+      "what_to_verify": "Whether MDM audit logs distinguish legitimate admin-initiated device-location requests from abuse of the same underlying OS capability by a malicious actor with stolen credentials.",
+      "status": "unresolved"
+    }
+  ]
+}
