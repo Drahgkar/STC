@@ -107,6 +107,496 @@
       "flagged_reason": "T1430.001 (Remote Device Management Services) - abuse of legitimate device-finding/remote-management APIs (e.g. Find My Device) for location tracking. Possible MDM angle (the legitimate remote-locate feature itself is an MDM capability) was not directly confirmed as a distinct abuse-detection signal in this session.",
       "what_to_verify": "Whether MDM audit logs distinguish legitimate admin-initiated device-location requests from abuse of the same underlying OS capability by a malicious actor with stolen credentials.",
       "status": "unresolved"
+    },
+    {
+      "source": "windows/endpoint_os/task_scheduler",
+      "flagged_reason": "No google_secops label set. Microsoft-Windows-TaskScheduler appears only as a provider in the WINEVTLOG parser's field-mapping examples; the parser's collection config doesn't name the TaskScheduler/Operational channel, so it isn't confirmed that this channel ingests and parses under WINEVTLOG.",
+      "what_to_verify": "Whether events from Microsoft-Windows-TaskScheduler/Operational parse under WINEVTLOG (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/winevtlog), confirmed by Google's docs or a working ingest.",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/dhcp_server/dhcp_ipv6_audit",
+      "flagged_reason": "No google_secops label set. The WINDOWS_DHCP parser documents the IPv4 audit log and the Operational, Admin, and FilterNotifications channels, but doesn't mention the IPv6 audit file (DhcpV6SrvLog-*.log).",
+      "what_to_verify": "Whether WINDOWS_DHCP (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-dhcp) parses the DHCPv6 audit log format.",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/print_server/print_operational",
+      "flagged_reason": "No google_secops label set. Google SecOps has no Windows Print Service parser, and the WINEVTLOG parser docs don't name the Microsoft-Windows-PrintService channels.",
+      "what_to_verify": "Whether Microsoft-Windows-PrintService/Operational events parse under WINEVTLOG (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/winevtlog).",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/print_server/print_admin",
+      "flagged_reason": "No google_secops label set. Google SecOps has no Windows Print Service parser, and the WINEVTLOG parser docs don't name the Microsoft-Windows-PrintService channels.",
+      "what_to_verify": "Whether Microsoft-Windows-PrintService/Admin events parse under WINEVTLOG (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/winevtlog).",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/web_server_iis/http_error",
+      "flagged_reason": "No google_secops label set. The IIS parser docs cover W3C access logs only; the HTTP.sys error log (HTTPERR) isn't mentioned.",
+      "what_to_verify": "Whether the IIS parser (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/iis) or another parser accepts HTTPERR logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/web_server_iis/ftp_access",
+      "flagged_reason": "No google_secops label set. The IIS parser maps an ftp_command field, but its docs only describe collecting W3C web logs, not the IIS FTP service logs.",
+      "what_to_verify": "Whether IIS FTP logs (W3C format, FTPSVC*) parse under the IIS parser (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/iis).",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/active_directory/dfs_replication",
+      "flagged_reason": "No google_secops label set. 'DFS Replication' appears once as a provider in the WINEVTLOG parser's field mappings; the DFS Replication channel isn't in its collection config.",
+      "what_to_verify": "Whether events from the DFS Replication channel parse under WINEVTLOG (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/winevtlog).",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/hyperv_hypervisor/vmms_operational",
+      "flagged_reason": "No google_secops label set. The WINDOWS_HYPERV parser (Pre-GA) documents the Hyper-V-VMMS-Admin channel, not VMMS-Operational, which this entry names.",
+      "what_to_verify": "Whether WINDOWS_HYPERV (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-hyperv) parses Hyper-V-VMMS-Operational events, and whether the parser has reached GA.",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/hyperv_hypervisor/worker_operational",
+      "flagged_reason": "No google_secops label set. The WINDOWS_HYPERV parser (Pre-GA) documents the Hyper-V-Worker-Admin channel, not Worker-Operational, which this entry names.",
+      "what_to_verify": "Whether WINDOWS_HYPERV (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-hyperv) parses Hyper-V-Worker-Operational events, and whether the parser has reached GA.",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/file_server_resource_manager/file_screening_audit",
+      "flagged_reason": "No google_secops label set. Google SecOps has no File Server Resource Manager parser, and the WINEVTLOG docs don't name FSRM events.",
+      "what_to_verify": "Whether FSRM file-screening events (SRMSVC, Application log) parse usefully under WINEVTLOG (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/winevtlog).",
+      "status": "unresolved"
+    },
+    {
+      "source": "windows/exchange_server/agent_logging",
+      "flagged_reason": "No google_secops label set. The EXCHANGE_MAIL parser docs cover the Application, System, and MSExchange Management channels plus message tracking logs, not transport agent logs (TransportRoles\\Logs\\...\\AgentLog).",
+      "what_to_verify": "Whether EXCHANGE_MAIL (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/exchange-mail) parses Exchange transport agent logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/endpoint_os/cron",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (NIX_SYSTEM), but neither its doc page nor its parser-list name confirms it covers this specific log: its supported-path list (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/nix-system) has no cron log.",
+      "what_to_verify": "Whether cron entries (syslog facility cron or /var/log/cron) parse under NIX_SYSTEM.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): Linux logs ingested over syslog use the same label as linux/endpoint_os/syslog_messages, NIX_SYSTEM. cron writes to the syslog cron facility."
+    },
+    {
+      "source": "linux/endpoint_os/apparmor",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (NIX_SYSTEM / AUDITD), but neither its doc page nor its parser-list name confirms it covers this specific log; AppArmor denials land in kern.log or audit.log, but neither parser doc mentions AppArmor.",
+      "what_to_verify": "Whether AppArmor messages are parsed into useful UDM fields by NIX_SYSTEM or AUDITD.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): Linux logs ingested over syslog use the same label as linux/endpoint_os/syslog_messages, NIX_SYSTEM. AppArmor denials arrive as kernel messages through syslog."
+    },
+    {
+      "source": "linux/dhcp_services/isc_dhcp",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (LINUX_DHCP, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether LINUX_DHCP (https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/supported-default-parsers) parses ISC dhcpd logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a dedicated parser for a source, use its label. LINUX_DHCP (Linux DHCP) is in the supported parser list."
+    },
+    {
+      "source": "linux/dhcp_services/kea_dhcp4",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Kea parser; LINUX_DHCP is undocumented).",
+      "what_to_verify": "Whether any parser accepts Kea DHCPv4 logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/dhcp_services/kea_dhcp6",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Kea parser; LINUX_DHCP is undocumented).",
+      "what_to_verify": "Whether any parser accepts Kea DHCPv6 logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/dns_services/bind_queries",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (BIND_DNS, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether BIND_DNS parses the BIND query log channel.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a dedicated parser for a source, use its label. BIND_DNS (BIND) is in the supported parser list."
+    },
+    {
+      "source": "linux/dns_services/bind_security",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (BIND_DNS, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether BIND_DNS parses the BIND security log channel.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a dedicated parser for a source, use its label. BIND_DNS (BIND) is in the supported parser list."
+    },
+    {
+      "source": "linux/dns_services/unbound",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log.",
+      "what_to_verify": "Whether any parser accepts Unbound resolver logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): Linux logs ingested over syslog with no dedicated parser use NIX_SYSTEM, the syslog source's label. Unbound logs to syslog by default (use-syslog: yes)."
+    },
+    {
+      "source": "linux/print_cups/cups_access",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no CUPS parser).",
+      "what_to_verify": "Whether any parser accepts CUPS access_log.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/print_cups/cups_error",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no CUPS parser).",
+      "what_to_verify": "Whether any parser accepts CUPS error_log.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/print_cups/cups_page",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no CUPS parser).",
+      "what_to_verify": "Whether any parser accepts CUPS page_log.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/kvm_hypervisor/libvirt_daemon",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no libvirt/KVM parser).",
+      "what_to_verify": "Whether any parser accepts libvirtd logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "linux/kvm_hypervisor/qemu_instances",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no QEMU/KVM parser).",
+      "what_to_verify": "Whether any parser accepts per-guest QEMU logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "macos/endpoint_os/bsm_audit",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (MACOS), but neither its doc page nor its parser-list name confirms it covers this specific log; MACOS covers Unified Logging via syslog (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/macos), and MACOS_ENDPOINT_SECURITY is Apple's Endpoint Security framework, not OpenBSM.",
+      "what_to_verify": "Whether any parser accepts OpenBSM audit trails (praudit output).",
+      "status": "unresolved"
+    },
+    {
+      "source": "macos/endpoint_os/system_fallback",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (MACOS), but neither its doc page nor its parser-list name confirms it covers this specific log; its doc describes Unified Logging forwarded through syslogd, not the legacy system.log file.",
+      "what_to_verify": "Whether MACOS (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/macos) is the right label for legacy /var/log/system.log.",
+      "status": "unresolved"
+    },
+    {
+      "source": "vmware_esxi/esxi_hypervisor/vmkernel",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (VMWARE_ESX), but neither its doc page nor its parser-list name confirms it covers this specific log: the doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vmware-esx) ingests ESXi syslog but never names vmkernel.",
+      "what_to_verify": "Whether VMWARE_ESX parses vmkernel messages from the ESXi syslog stream.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to VMWARE_ESX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "vmware_esxi/esxi_hypervisor/hostd",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (VMWARE_ESX), but neither its doc page nor its parser-list name confirms it covers this specific log: the doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vmware-esx) ingests ESXi syslog but never names hostd.",
+      "what_to_verify": "Whether VMWARE_ESX parses hostd messages from the ESXi syslog stream.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to VMWARE_ESX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "vmware_esxi/esxi_hypervisor/vpxa",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (VMWARE_ESX), but neither its doc page nor its parser-list name confirms it covers this specific log: the doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vmware-esx) ingests ESXi syslog but never names vpxa.",
+      "what_to_verify": "Whether VMWARE_ESX parses vpxa messages from the ESXi syslog stream.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to VMWARE_ESX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "vmware_esxi/esxi_hypervisor/authentication",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (VMWARE_ESX), but neither its doc page nor its parser-list name confirms it covers this specific log: the doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vmware-esx) ingests ESXi syslog but never names auth.log.",
+      "what_to_verify": "Whether VMWARE_ESX parses ESXi auth/shell messages.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to VMWARE_ESX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "proxmox_ve/proxmox_hypervisor/pve_daemon",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (PROXMOX, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Which Proxmox logs the PROXMOX parser accepts.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to PROXMOX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "proxmox_ve/proxmox_hypervisor/pve_api_proxy",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (PROXMOX, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether PROXMOX parses pveproxy access logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to PROXMOX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "proxmox_ve/proxmox_hypervisor/cluster_corosync",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (PROXMOX, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether PROXMOX parses corosync cluster logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to PROXMOX. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "kubernetes_node/k8s_control_plane/kubelet",
+      "flagged_reason": "No google_secops label set. KUBERNETES_NODE is documented for Google Kubernetes Engine only (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/kubernetes-node), not self-managed nodes.",
+      "what_to_verify": "Whether any parser accepts kubelet logs from self-managed Kubernetes.",
+      "status": "unresolved"
+    },
+    {
+      "source": "kubernetes_node/k8s_control_plane/api_server",
+      "flagged_reason": "No google_secops label set. KUBERNETES_NODE is documented for Google Kubernetes Engine only (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/kubernetes-node); KUBERNETES_AUDIT covers audit events, not the API server's own log.",
+      "what_to_verify": "Whether any parser accepts kube-apiserver component logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "edr_crowdstrike/falcon_console/audit_events",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (CS_STREAM), but neither its doc page nor its parser-list name confirms it covers this specific log: the Event Streams doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cs-stream) doesn't list audit event types.",
+      "what_to_verify": "Whether CS_STREAM parses Falcon UserActivityAuditEvent / AuthActivityAuditEvent.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to CS_STREAM. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "cisco_ios/network_device/syslog",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (CISCO_ROUTER https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-router, CISCO_SWITCH https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-switch), and the docs don't settle which one this log should use; Google splits IOS syslog by device role.",
+      "what_to_verify": "Whether STC should split this source by device role, or which label to use.",
+      "status": "unresolved"
+    },
+    {
+      "source": "cisco_ios/network_device/aaa_tacacs",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (CISCO_TACACS, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log; it may be the TACACS+ server's log, not on-device AAA messages.",
+      "what_to_verify": "Whether CISCO_TACACS parses IOS on-device AAA/TACACS+ messages.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to CISCO_TACACS. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "ivanti_connect_secure/vpn_appliance/system_errors",
+      "flagged_reason": "No google_secops label set. The PULSE_SECURE_VPN doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/pulse-secure-vpn) configures the User Access and Admin Access logs only, not the Events (system) log.",
+      "what_to_verify": "Whether PULSE_SECURE_VPN parses the Ivanti Connect Secure Events log.",
+      "status": "unresolved"
+    },
+    {
+      "source": "f5_bigip/apm_gateway/packet_filter_firewall",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (F5_AFM), but neither its doc page nor its parser-list name confirms it covers this specific log: AFM (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/f5-afm) is the firewall module, and BIG-IP packet filtering is a separate feature.",
+      "what_to_verify": "Whether F5_AFM or F5_BIGIP_LTM parses BIG-IP packet-filter log messages.",
+      "status": "unresolved"
+    },
+    {
+      "source": "identity_provider/ping_identity/authentication_events",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (PING, PING_FEDERATE, PING_ONE, PINGONE_AIC; all list-only), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which Ping product STC means, and the matching parser.",
+      "status": "unresolved"
+    },
+    {
+      "source": "aws/cloudtrail/network_activity_events",
+      "flagged_reason": "No google_secops label set. The AWS_CLOUDTRAIL doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-cloudtrail) covers management and data events, not network activity events.",
+      "what_to_verify": "Whether AWS_CLOUDTRAIL parses CloudTrail network activity (VPC endpoint) events.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to AWS_CLOUDTRAIL. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "aws/shield/ddos_detection_events",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (AWS_SHIELD, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Which Shield output AWS_SHIELD parses (Shield Advanced events vs. metrics).",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to AWS_SHIELD. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "azure/ddos_protection/mitigation_logs",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Azure DDoS Protection parser).",
+      "what_to_verify": "Whether any parser accepts Azure DDoS Protection mitigation logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "gcp/cloud_audit_logs/policy_denied",
+      "flagged_reason": "No google_secops label set. The GCP_CLOUDAUDIT doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gcp-cloudaudit) names Admin Activity and Data Access, not Policy Denied.",
+      "what_to_verify": "Whether GCP_CLOUDAUDIT parses Policy Denied audit logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to GCP_CLOUDAUDIT. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "gcp/cloud_audit_logs/system_event",
+      "flagged_reason": "No google_secops label set. The GCP_CLOUDAUDIT doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gcp-cloudaudit) names Admin Activity and Data Access, not System Event.",
+      "what_to_verify": "Whether GCP_CLOUDAUDIT parses System Event audit logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to GCP_CLOUDAUDIT. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "gcp/cloud_armor/security_policy_logs",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Cloud Armor parser; GCP_MODEL_ARMOR is a different product).",
+      "what_to_verify": "Which parser handles Cloud Armor request logs (possibly the load-balancer log type).",
+      "status": "unresolved"
+    },
+    {
+      "source": "email_security/proofpoint/message_trace",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (PROOFPOINT_MAIL_FILTER, PROOFPOINT_EMAIL_PROTECTION, PROOFPOINT_SER; PROOFPOINT_MAIL is TAP only), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which Proofpoint parser takes message trace / PPS logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "email_security/mimecast/message_log",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (MIMECAST_MAIL https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/mimecast-mail, MIMECAST_MAIL_V2 https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/mimecast-mail-v2), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which Mimecast mail label Google recommends for new feeds.",
+      "status": "unresolved"
+    },
+    {
+      "source": "pam/hashicorp_vault/token_lease_events",
+      "flagged_reason": "No google_secops label set. The HASHICORP doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/hashicorp) covers Vault audit logs; token lease events aren't named.",
+      "what_to_verify": "Whether lease/token events appear in, and parse from, Vault audit logs.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to HASHICORP. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "backup_recovery/veeam/repository_access_log",
+      "flagged_reason": "No google_secops label set. The VEEAM doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/veeam) names backup job, replication, restore and system events, not repository access.",
+      "what_to_verify": "Whether VEEAM parses repository access events.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to VEEAM. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "backup_recovery/rubrik/audit_log",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (RUBRIK, RUBRIK_POLARIS, RUBRIK_SECURITY_CLOUD; all list-only), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which Rubrik parser takes audit logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "collaboration_platforms/sharepoint_onedrive/api_access_log",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (OFFICE_365 / SHAREPOINT), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Which parser, if any, covers SharePoint/OneDrive API access logs (possibly MICROSOFT_GRAPH_ACTIVITY_LOGS).",
+      "status": "unresolved"
+    },
+    {
+      "source": "configuration_management/microsoft_sccm/software_deployment_log",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (SCCM, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether SCCM parses software deployment status messages.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to SCCM. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "configuration_management/ansible/playbook_execution_log",
+      "flagged_reason": "No google_secops label set. ANSIBLE_AWX (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ansible-awx) is for AWX, not ansible-playbook run logs.",
+      "what_to_verify": "Whether any parser accepts plain Ansible playbook logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "cloudflare/ddos_mitigation/mitigation_events",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (CLOUDFLARE), but neither its doc page nor its parser-list name confirms it covers this specific log: its doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cloudflare) lists DNS, HTTP and Firewall events; DDoS appears only as a field name.",
+      "what_to_verify": "Whether CLOUDFLARE parses Network Analytics / DDoS mitigation events.",
+      "status": "unresolved"
+    },
+    {
+      "source": "unified_communications/microsoft_teams_phone/call_detail_records",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Teams call-record parser).",
+      "what_to_verify": "Whether any parser accepts Teams call records.",
+      "status": "unresolved"
+    },
+    {
+      "source": "unified_communications/zoom_phone/call_detail_records",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (ZOOM_ACTIVITY / ZOOM_OPERATION_LOGS), but neither its doc page nor its parser-list name confirms it covers this specific log; neither names Zoom Phone call logs.",
+      "what_to_verify": "Whether a Zoom parser takes Zoom Phone call logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "unified_communications/asterisk/call_detail_records",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Asterisk parser).",
+      "what_to_verify": "Whether any parser accepts Asterisk CDRs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "unified_communications/freeswitch/call_detail_records",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no FreeSWITCH parser).",
+      "what_to_verify": "Whether any parser accepts FreeSWITCH CDRs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "unified_communications/opensips/accounting_cdr",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no OpenSIPS parser).",
+      "what_to_verify": "Whether any parser accepts OpenSIPS accounting CDRs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "source_control/gitlab/audit_events",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (GITLAB), but neither its doc page nor its parser-list name confirms it covers this specific log: its doc (https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gitlab) describes GitLab JSON logs without naming audit events.",
+      "what_to_verify": "Whether GITLAB parses audit_json.log / audit events API output.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to GITLAB. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "ot_network_monitoring/nozomi_networks/protocol_alerts",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (NOZOMI_GUARDIAN, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether NOZOMI_GUARDIAN parses Guardian protocol alerts.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to NOZOMI_GUARDIAN. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "ot_network_monitoring/dragos/protocol_alerts",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (DRAGOS, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether DRAGOS parses Dragos Platform alerts.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to DRAGOS. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "ot_network_monitoring/claroty/protocol_alerts",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (CLAROTY_CTD https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/claroty-ctd, CLAROTY_XDOME https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/claroty-xdome), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which Claroty product STC means, and the matching parser.",
+      "status": "unresolved"
+    },
+    {
+      "source": "siemens_simatic/s7_plc/diagnostic_buffer",
+      "flagged_reason": "No google_secops label set. SIEMENS_S7_PLC_SYSLOG and SIEMENS_S7_PLC_SNMP exist (list-only), but the S7 diagnostic buffer isn't a syslog or SNMP stream.",
+      "what_to_verify": "Whether either S7 parser carries diagnostic buffer entries.",
+      "status": "unresolved"
+    },
+    {
+      "source": "siemens_simatic/wincc_hmi_comfort_or_higher/audit_trail",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no WinCC parser).",
+      "what_to_verify": "Whether any parser accepts WinCC audit trail exports.",
+      "status": "unresolved"
+    },
+    {
+      "source": "ot_historians/aveva_pi_system/audit_trail",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no AVEVA PI parser).",
+      "what_to_verify": "Whether any parser accepts PI Server audit trail data.",
+      "status": "unresolved"
+    },
+    {
+      "source": "mobile_threat_defense/zimperium/network_and_phishing_protection",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (ZIMPERIUM, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether ZIMPERIUM parses network and phishing threat events.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to ZIMPERIUM. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "mobile_threat_defense/zimperium/android_malware_scanning",
+      "flagged_reason": "No google_secops label set. A parser exists for the product (ZIMPERIUM, list-only, no doc page), but neither its doc page nor its parser-list name confirms it covers this specific log.",
+      "what_to_verify": "Whether ZIMPERIUM parses malware detection events.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): when Google SecOps has a parser for the product, use its label even if the parser docs don't name this specific log. Label set to ZIMPERIUM. Still worth confirming against a working ingest."
+    },
+    {
+      "source": "mobile_threat_defense/microsoft_defender_for_mobile/network_and_phishing_protection",
+      "flagged_reason": "No google_secops label set. The only mobile Defender parser is MICROSOFT_DEFENDER_ENDPOINT_IOS (list-only); none is named for Android.",
+      "what_to_verify": "Whether Defender for Endpoint mobile events arrive through MICROSOFT_DEFENDER_ENDPOINT or the iOS parser.",
+      "status": "unresolved"
+    },
+    {
+      "source": "mobile_threat_defense/microsoft_defender_for_mobile/android_malware_scanning",
+      "flagged_reason": "No google_secops label set. The only mobile Defender parser is MICROSOFT_DEFENDER_ENDPOINT_IOS (list-only); none is named for Android.",
+      "what_to_verify": "Whether Android malware-scan events arrive through MICROSOFT_DEFENDER_ENDPOINT.",
+      "status": "unresolved"
+    },
+    {
+      "source": "mobile_forensic_extraction/cellebrite_ufed/device_extraction",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Cellebrite parser).",
+      "what_to_verify": "Whether any parser accepts Cellebrite UFED extraction logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "mobile_device_management/jamf_pro/audit_log",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (JAMF_PRO, JAMF_PRO_MDM, JAMF; all list-only), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which Jamf parser takes Jamf Pro audit logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "mobile_device_management/workspace_one/audit_log",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (AIRWATCH https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/airwatch, VMWARE_WORKSPACE_ONE https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vmware-workspace-one; both document Omnissa Workspace ONE UEM), and the docs don't settle which one this log should use.",
+      "what_to_verify": "Which of the two Workspace ONE labels Google recommends.",
+      "status": "unresolved"
+    },
+    {
+      "source": "android_enterprise/device_owner_managed/security_log",
+      "flagged_reason": "No google_secops label set. Google SecOps lists no parser for this product or log (no Android Enterprise security-log parser).",
+      "what_to_verify": "Whether any parser accepts Android SecurityLog events.",
+      "status": "unresolved"
+    },
+    {
+      "source": "network_security_monitoring/zeek/protocol_logs",
+      "flagged_reason": "No google_secops label set. More than one Google SecOps parser fits (BRO_JSON https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bro-json, BRO_TSV), and the docs don't settle which one this log should use; the label depends on Zeek's output format.",
+      "what_to_verify": "Whether STC should pick the JSON label (BRO_JSON) as the default.",
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-23 by the maintainer (Google SecOps practitioner): Zeek logs must be in JSON to ingest into Google SecOps, so the label is BRO_JSON, documented at https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bro-json."
     }
   ]
 }

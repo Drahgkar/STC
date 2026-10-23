@@ -12,6 +12,12 @@ tagged releases.
 
 ### Added
 
+- Google SecOps ingestion labels (`siem_labels.google_secops`) for 103
+  of 152 log sources, each checked against Google's parser
+  documentation or confirmed by the maintainer. The 49 sources left
+  `null` each have an unresolved `research_needed.json` entry saying
+  why.
+
 - Initial public release of the coverage catalog: 152 log sources
   across 40 platforms, mapped to 712 of 918 MITRE ATT&CK techniques
   (98.6% of in-scope techniques) across the Enterprise, Mobile, and ICS

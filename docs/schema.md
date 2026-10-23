@@ -52,7 +52,7 @@ list shortened for readability:
   "mitre_tactics": ["enterprise-attack:TA0001", "..."],
   "mitre_techniques": ["enterprise-attack:T1001", "..."],
   "siem_labels": {
-    "google_secops": "win:sysmon:operational",
+    "google_secops": "WINDOWS_SYSMON",
     "splunk_sourcetype": null,
     "elastic_ecs_dataset": null,
     "sentinel_table": null,
@@ -88,25 +88,48 @@ An object with five fixed keys: `google_secops`, `splunk_sourcetype`,
 holds the field or label you'd use to query this source in that SIEM,
 or `null` if that mapping hasn't been verified yet.
 
-**Every entry starts with all five values set to `null`.** This
-catalog ships with `siem_labels` intentionally blank across all 152
-entries and 760 values — not partially filled in, not defaulted to one
-SIEM over another. Don't guess a plausible-looking field name for a
-SIEM you haven't actually verified against — an incorrect label is
-worse than an honest `null`, since it looks authoritative and isn't.
-Fill in a value only once you've confirmed it against that SIEM's real
-documentation or your own working query.
+**A value is set only once it's verified.** Don't guess a
+plausible-looking field name for a SIEM you haven't actually verified
+against — an incorrect label is worse than an honest `null`, since it
+looks authoritative and isn't. Fill in a value only once you've
+confirmed it against that SIEM's real documentation or your own
+working query.
+
+`google_secops` holds the source's **ingestion label**: the log type
+that selects the Google SecOps parser, such as `WINEVTLOG` or
+`WINDOWS_SYSMON`. Search it as `metadata.log_type`. Several sources can
+share a label; the Windows Security, System, and Application logs all
+ingest as `WINEVTLOG`. Values come from Google's
+[Supported log types and default parsers](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/supported-default-parsers)
+list, using these rules:
+
+- **A parser for the product wins.** If Google has a parser for the
+  source's product, use its label, even when the parser's doc page
+  doesn't name that specific log.
+- **Syslog falls back to `NIX_SYSTEM`.** Linux logs that arrive over
+  syslog with no parser of their own use `NIX_SYSTEM`, the same label
+  as the syslog source.
+- **Two candidate parsers means `null`.** When more than one parser
+  fits and the docs don't settle it, leave the value `null` until
+  someone picks.
+
+Where a label rests on a rule rather than on the parser's doc page,
+the matching `research_needed.json` entry is marked resolved and says
+so. Google SecOps labels are set for 103 of 152 sources. Each source
+left `null` has an unresolved `research_needed.json` entry naming the
+candidate parsers and what's left to verify. The other four keys are
+still `null` everywhere.
 
 Here's an illustrative example of what a fully-mapped entry looks
 like once verified across all five SIEMs, for the Windows Sysmon
-operational log (`windows/endpoint_os/sysmon`). This is **not** the
-current state of that entry in `data_sources.json` — every entry ships
-blank, as stated above — it's shown here purely to demonstrate the
-shape a completed mapping takes:
+operational log (`windows/endpoint_os/sysmon`). Only the
+`google_secops` value is set in `data_sources.json` today; the other
+four are shown purely to demonstrate the shape a completed mapping
+takes:
 
 ```json
 {
-  "google_secops": "win:sysmon:operational",
+  "google_secops": "WINDOWS_SYSMON",
   "splunk_sourcetype": "XmlWinEventLog:Microsoft-Windows-Sysmon/Operational",
   "elastic_ecs_dataset": "logs-windows.sysmon_operational-*",
   "sentinel_table": "Microsoft-Windows-Sysmon/Operational",

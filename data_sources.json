@@ -241,7 +241,7 @@
             "enterprise-attack:T1688"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINEVTLOG",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -259,7 +259,7 @@
             "enterprise-attack:T1543"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINEVTLOG",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -275,7 +275,7 @@
             "enterprise-attack:T1059"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINEVTLOG",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -356,7 +356,7 @@
             "enterprise-attack:T1690"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "POWERSHELL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -684,7 +684,7 @@
             "enterprise-attack:T1688"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_SYSMON",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -710,7 +710,7 @@
             "enterprise-attack:T1110.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_NET_POLICY_SERVER",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -732,7 +732,7 @@
             "enterprise-attack:T1557.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_DHCP",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -768,7 +768,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_DHCP",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -789,7 +789,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_DNS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -814,7 +814,7 @@
             "enterprise-attack:T1568.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_DNS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -877,7 +877,7 @@
             "enterprise-attack:T1505.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "IIS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -949,7 +949,7 @@
             "enterprise-attack:T1649"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_AD",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1070,7 +1070,7 @@
             "enterprise-attack:T1110.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NIX_SYSTEM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1088,7 +1088,7 @@
             "enterprise-attack:T1543"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NIX_SYSTEM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1184,7 +1184,7 @@
             "enterprise-attack:T1690"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AUDITD",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1201,7 +1201,7 @@
             "enterprise-attack:T1053.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NIX_SYSTEM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1219,7 +1219,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NIX_SYSTEM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1261,7 +1261,7 @@
             "enterprise-attack:T1573.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "LINUX_SYSMON",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1277,7 +1277,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NIX_SYSTEM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1299,7 +1299,7 @@
             "enterprise-attack:T1557.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "LINUX_DHCP",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1358,7 +1358,7 @@
             "enterprise-attack:T1568"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "BIND_DNS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1374,7 +1374,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "BIND_DNS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1390,7 +1390,7 @@
             "enterprise-attack:T1071.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NIX_SYSTEM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1467,7 +1467,7 @@
             "enterprise-attack:T1505.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NGINX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1486,7 +1486,7 @@
             "enterprise-attack:T1595.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NGINX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1509,7 +1509,7 @@
             "enterprise-attack:T1505.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "APACHE",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1528,7 +1528,7 @@
             "enterprise-attack:T1595.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "APACHE",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1596,7 +1596,7 @@
             "enterprise-attack:T1547.006"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MACOS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1715,7 +1715,7 @@
             "enterprise-attack:T1564.006"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VMWARE_ESX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1743,7 +1743,7 @@
             "enterprise-attack:T1675"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VMWARE_ESX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1759,7 +1759,7 @@
             "enterprise-attack:T1021"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VMWARE_ESX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1785,7 +1785,7 @@
             "enterprise-attack:T1110.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VMWARE_ESX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1808,7 +1808,7 @@
             "enterprise-attack:T1552"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PROXMOX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1833,7 +1833,7 @@
             "enterprise-attack:T1552"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PROXMOX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1850,7 +1850,7 @@
             "enterprise-attack:T1564.006"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PROXMOX",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1923,7 +1923,7 @@
             "enterprise-attack:T1613"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "KUBERNETES_AUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1940,7 +1940,7 @@
           "mitre_techniques": [],
           "broad_spectrum": true,
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "OSSEC",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1957,7 +1957,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "OSSEC",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1974,7 +1974,7 @@
           "mitre_techniques": [],
           "broad_spectrum": true,
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CS_ALERTS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -1991,7 +1991,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CS_STREAM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2017,7 +2017,7 @@
             "enterprise-attack:T1110.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CS_IDP",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2037,7 +2037,7 @@
             "enterprise-attack:T1059"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_DEFENDER_ENDPOINT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2055,7 +2055,7 @@
             "enterprise-attack:T1071"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_DEFENDER_ENDPOINT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2068,7 +2068,7 @@
           "mitre_techniques": [],
           "broad_spectrum": true,
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_DEFENDER_ENDPOINT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2165,7 +2165,7 @@
             "mobile-attack:T1663"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PAN_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2186,7 +2186,7 @@
             "ics-attack:T0883"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PAN_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2219,7 +2219,7 @@
             "enterprise-attack:T1686.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PAN_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2245,7 +2245,7 @@
             "ics-attack:T0886"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PAN_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2341,7 +2341,7 @@
             "mobile-attack:T1663"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "FORTINET_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2359,7 +2359,7 @@
             "enterprise-attack:T1190"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "FORTINET_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2385,7 +2385,7 @@
             "ics-attack:T0886"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "FORTINET_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2446,7 +2446,7 @@
             "enterprise-attack:T1556.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CISCO_TACACS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2471,7 +2471,7 @@
             "enterprise-attack:T1133"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CISCO_ASA_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2487,7 +2487,7 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CISCO_ASA_FIREWALL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2513,7 +2513,7 @@
             "enterprise-attack:T1199"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PULSE_SECURE_VPN",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2554,7 +2554,7 @@
             "enterprise-attack:T1133"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "F5_BIGIP_APM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2616,7 +2616,7 @@
             "enterprise-attack:T1621"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AZURE_AD_SIGNIN",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2649,7 +2649,7 @@
             "enterprise-attack:T1671"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AZURE_AD_AUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2670,7 +2670,7 @@
             "enterprise-attack:T1621"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_RISK_DETECTIONS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2718,7 +2718,7 @@
             "enterprise-attack:T1621"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "OKTA",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2768,7 +2768,7 @@
             "enterprise-attack:T1621"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "DUO_AUTH",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2787,7 +2787,7 @@
             "enterprise-attack:T1556.006"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "DUO_ADMIN",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2848,7 +2848,7 @@
             "enterprise-attack:T1686.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AWS_CLOUDTRAIL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2866,7 +2866,7 @@
             "enterprise-attack:T1567.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AWS_CLOUDTRAIL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2882,7 +2882,7 @@
             "enterprise-attack:T1580"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AWS_CLOUDTRAIL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2907,7 +2907,7 @@
             "enterprise-attack:T1499.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AWS_SHIELD",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -2964,7 +2964,7 @@
             "enterprise-attack:T1686.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AZURE_ACTIVITY",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3044,7 +3044,7 @@
             "enterprise-attack:T1686.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "GCP_CLOUDAUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3062,7 +3062,7 @@
             "enterprise-attack:T1567.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "GCP_CLOUDAUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3078,7 +3078,7 @@
             "enterprise-attack:T1580"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "GCP_CLOUDAUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3094,7 +3094,7 @@
             "enterprise-attack:T1578"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "GCP_CLOUDAUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3172,7 +3172,7 @@
             "enterprise-attack:T1204.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PROOFPOINT_MAIL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3242,7 +3242,7 @@
             "ics-attack:T0865"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_DEFENDER_MAIL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3258,7 +3258,7 @@
             "enterprise-attack:T1204.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_DEFENDER_MAIL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3284,7 +3284,7 @@
             "enterprise-attack:T1657"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "OFFICE_365",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3313,7 +3313,7 @@
             "ics-attack:T0886"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CYBERARK_PAM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3330,7 +3330,7 @@
             "enterprise-attack:T1555.005"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CYBERARK_PAM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3349,7 +3349,7 @@
             "enterprise-attack:T1555"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "HASHICORP",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3365,7 +3365,7 @@
             "enterprise-attack:T1550"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "HASHICORP",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3385,7 +3385,7 @@
             "enterprise-attack:T1490"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VEEAM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3405,7 +3405,7 @@
             "enterprise-attack:T1561.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VEEAM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3447,7 +3447,7 @@
             "enterprise-attack:T1213.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "ATLASSIAN_CONFLUENCE",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3466,7 +3466,7 @@
             "enterprise-attack:T1213.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "OFFICE_365",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3506,7 +3506,7 @@
             "enterprise-attack:T1565.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "VARONIS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3534,7 +3534,7 @@
             "enterprise-attack:T1677"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "SCCM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3709,7 +3709,7 @@
             "enterprise-attack:T1213.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "GITHUB",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3727,7 +3727,7 @@
             "enterprise-attack:T1213.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "GITLAB",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3747,7 +3747,7 @@
             "enterprise-attack:T1213.005"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "SLACK_AUDIT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3767,7 +3767,7 @@
             "enterprise-attack:T1213.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "SALESFORCE",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3789,7 +3789,7 @@
             "enterprise-attack:T1505.001"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MICROSOFT_SQL",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3841,7 +3841,7 @@
             "ics-attack:T0895"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINEVTLOG",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3861,7 +3861,7 @@
             "ics-attack:T0874"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_SYSMON",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3911,7 +3911,7 @@
             "ics-attack:T0895"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINEVTLOG",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -3931,7 +3931,7 @@
             "ics-attack:T0874"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_SYSMON",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4007,7 +4007,7 @@
             "ics-attack:T1695.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "NOZOMI_GUARDIAN",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4081,7 +4081,7 @@
             "ics-attack:T1695.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "DRAGOS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4243,7 +4243,7 @@
             "mobile-attack:T1664"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "LOOKOUT_MOBILE_ENDPOINT_SECURITY",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4268,7 +4268,7 @@
             "mobile-attack:T1670"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "LOOKOUT_MOBILE_ENDPOINT_SECURITY",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4294,7 +4294,7 @@
             "mobile-attack:T1664"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "ZIMPERIUM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4319,7 +4319,7 @@
             "mobile-attack:T1670"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "ZIMPERIUM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4438,7 +4438,7 @@
             "mobile-attack:T1642"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "AZURE_MDM_INTUNE",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4624,7 +4624,7 @@
             "enterprise-attack:T1573.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "BRO_JSON",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4715,7 +4715,7 @@
             "enterprise-attack:T1573.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CORELIGHT",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,

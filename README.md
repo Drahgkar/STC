@@ -107,10 +107,13 @@ Sysmon's operational log.
 `siem_labels` holds the field or label you'd use to query that source
 in five specific SIEMs (Google SecOps, Splunk, Elastic, Microsoft
 Sentinel, and Wazuh), or `null` for whichever haven't been verified
-yet. Every entry in this catalog ships with all five values `null` —
-a `null` means "not yet mapped," not "doesn't apply." See
-[`docs/schema.md`](docs/schema.md) for a real example of what a
-mapped-in value looks like once verified.
+yet. A `null` means "not yet mapped," not "doesn't apply." Google
+SecOps labels are filled in for 103 of the 152 sources, each checked
+against Google's parser list and documentation using the rules in
+`docs/schema.md`; the other four SIEMs are still
+all `null`. Each source left `null` for Google SecOps has an entry in
+`research_needed.json` that says why. See
+[`docs/schema.md`](docs/schema.md) for what each value means.
 
 `status` records whether a source is actually deployed and collecting
 in a specific environment: `"collected"`, `"planned"`,
