@@ -59,7 +59,7 @@ The `--matrix` flag filters to a single domain instead of showing all
 three:
 
 ```bash
-python3 generate_stc_map.py -i data_sources.json -r mitre_reference.json -o datasource_map_enterprise.html --matrix enterprise
+python3 generate_stc_map.py -i data_sources.json -r mitre_reference.json -o stc_map_enterprise.html --matrix enterprise
 ```
 
 Valid values are `all`, `enterprise`, `mobile`, and `ics`.
