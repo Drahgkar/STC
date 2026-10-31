@@ -11,7 +11,7 @@ the figures below reflect the catalog at the time of writing.
 identity, network infrastructure, cloud platforms, and the applications
 running on them.
 
-**Coverage: 572 of 697 techniques (100% of in-scope).** 125 techniques
+**Coverage: 574 of 706 techniques (100% of in-scope).** 132 techniques
 are marked out of scope, and none remain open.
 
 Enterprise is the most conventionally documented domain. Most mappings
@@ -30,8 +30,8 @@ instrumentation this catalog didn't find a verified source for. Most of
 this domain's out-of-scope entries reflect that limitation specifically,
 not a gap in research effort.
 
-**Coverage: 67 of 124 techniques (100% of in-scope).** 57 techniques
-are marked out of scope, and none remain open.
+**Coverage: 67 of 125 techniques (98.5% of in-scope).** 57 techniques
+are marked out of scope. 1 remains open, in Initial Access.
 
 Mobile coverage in this catalog comes from four source categories, each
 with a different evidence model:
@@ -60,8 +60,8 @@ with a different evidence model:
 SCADA systems, engineering workstations, and the network protocols
 connecting them.
 
-**Coverage: 81 of 97 techniques (100% of in-scope).** 16 techniques
-are marked out of scope, and none remain open.
+**Coverage: 87 of 104 techniques (98.9% of in-scope).** 16 techniques
+are marked out of scope. 1 remains open, in Execution.
 
 ICS coverage follows the Purdue Model's separation of control-system
 levels, described in detail in

@@ -3381,6 +3381,18 @@
       "flagged_reason": "No wazuh_rule_group label set. Corelight emits Zeek logs, but the owlh-zeek rules expect OwlH's bro_engine field. Two candidates.",
       "what_to_verify": "Whether Corelight output matches the zeek rules.",
       "status": "unresolved"
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "ICS T1701.003 (Unix Shell), added in ATT&CK v20.0. MITRE analytics 2088-2090 use auditd execve, Linux auth logs, and network-device or embedded-device CLI audit, but this catalog has no Linux or network-device source in the ICS domain.",
+      "what_to_verify": "Whether to add an ICS Linux host or OT network-device source that records shell execution or CLI command audit.",
+      "status": "unresolved"
+    },
+    {
+      "source": "(no existing source - potential future addition)",
+      "flagged_reason": "Mobile T1476 (Deliver Malicious Application via Other Means), back in ATT&CK v20.0. MITRE publishes no detection strategy for it. Mobile Threat Defense vendors (Zimperium, Lookout) describe sideloaded-app detection only in marketing material, which doesn't meet the evidence standard.",
+      "what_to_verify": "Vendor technical documentation showing that an MTD or MDM source in this catalog logs a sideloaded (non-store) app install as a distinct event.",
+      "status": "unresolved"
     }
   ]
 }

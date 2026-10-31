@@ -239,7 +239,8 @@
             "enterprise-attack:T1686",
             "enterprise-attack:T1686.003",
             "enterprise-attack:T1687",
-            "enterprise-attack:T1688"
+            "enterprise-attack:T1688",
+            "enterprise-attack:T1700"
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
@@ -689,7 +690,8 @@
             "enterprise-attack:T1686",
             "enterprise-attack:T1686.003",
             "enterprise-attack:T1687",
-            "enterprise-attack:T1688"
+            "enterprise-attack:T1688",
+            "enterprise-attack:T1700"
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_SYSMON",
@@ -1199,7 +1201,8 @@
             "enterprise-attack:T1685.003",
             "enterprise-attack:T1685.004",
             "enterprise-attack:T1685.006",
-            "enterprise-attack:T1690"
+            "enterprise-attack:T1690",
+            "enterprise-attack:T1700"
           ],
           "siem_labels": {
             "google_secops": "AUDITD",
@@ -2642,7 +2645,8 @@
             "enterprise-attack:T1606",
             "enterprise-attack:T1606.001",
             "enterprise-attack:T1606.002",
-            "enterprise-attack:T1621"
+            "enterprise-attack:T1621",
+            "enterprise-attack:T1697"
           ],
           "siem_labels": {
             "google_secops": "AZURE_AD_SIGNIN",
@@ -3843,7 +3847,6 @@
           ],
           "mitre_techniques": [
             "ics-attack:T0802",
-            "ics-attack:T0807",
             "ics-attack:T0809",
             "ics-attack:T0817",
             "ics-attack:T0820",
@@ -3854,7 +3857,6 @@
             "ics-attack:T0847",
             "ics-attack:T0849",
             "ics-attack:T0852",
-            "ics-attack:T0853",
             "ics-attack:T0859",
             "ics-attack:T0863",
             "ics-attack:T0864",
@@ -3867,7 +3869,9 @@
             "ics-attack:T0892",
             "ics-attack:T0893",
             "ics-attack:T0894",
-            "ics-attack:T0895"
+            "ics-attack:T0895",
+            "ics-attack:T1701",
+            "ics-attack:T1701.002"
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
@@ -3889,7 +3893,13 @@
           "mitre_techniques": [
             "ics-attack:T0851",
             "ics-attack:T0862",
-            "ics-attack:T0874"
+            "ics-attack:T0874",
+            "ics-attack:T1701",
+            "ics-attack:T1701.001",
+            "ics-attack:T1701.002",
+            "ics-attack:T1701.004",
+            "ics-attack:T1701.005",
+            "ics-attack:T1701.006"
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_SYSMON",
@@ -3915,7 +3925,6 @@
           ],
           "mitre_techniques": [
             "ics-attack:T0802",
-            "ics-attack:T0807",
             "ics-attack:T0809",
             "ics-attack:T0817",
             "ics-attack:T0820",
@@ -3926,7 +3935,6 @@
             "ics-attack:T0847",
             "ics-attack:T0849",
             "ics-attack:T0852",
-            "ics-attack:T0853",
             "ics-attack:T0859",
             "ics-attack:T0863",
             "ics-attack:T0864",
@@ -3939,7 +3947,9 @@
             "ics-attack:T0892",
             "ics-attack:T0893",
             "ics-attack:T0894",
-            "ics-attack:T0895"
+            "ics-attack:T0895",
+            "ics-attack:T1701",
+            "ics-attack:T1701.002"
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
@@ -3961,7 +3971,13 @@
           "mitre_techniques": [
             "ics-attack:T0851",
             "ics-attack:T0862",
-            "ics-attack:T0874"
+            "ics-attack:T0874",
+            "ics-attack:T1701",
+            "ics-attack:T1701.001",
+            "ics-attack:T1701.002",
+            "ics-attack:T1701.004",
+            "ics-attack:T1701.005",
+            "ics-attack:T1701.006"
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_SYSMON",
@@ -4586,7 +4602,8 @@
             "enterprise-attack:TA0009",
             "enterprise-attack:TA0010",
             "enterprise-attack:TA0011",
-            "enterprise-attack:TA0040"
+            "enterprise-attack:TA0040",
+            "ics-attack:TA0101"
           ],
           "mitre_techniques": [
             "enterprise-attack:T1001",
@@ -4655,7 +4672,9 @@
             "enterprise-attack:T1572",
             "enterprise-attack:T1573",
             "enterprise-attack:T1573.001",
-            "enterprise-attack:T1573.002"
+            "enterprise-attack:T1573.002",
+            "ics-attack:T0869.001",
+            "ics-attack:T0869.002"
           ],
           "siem_labels": {
             "google_secops": "BRO_JSON",

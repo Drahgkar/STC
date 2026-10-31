@@ -52,10 +52,10 @@ project.
 
 | Domain | Techniques covered | Of in-scope techniques |
 | --- | --- | --- |
-| Enterprise | 572 of 697 | 100.0% |
-| Mobile | 67 of 124 | 100.0% |
-| ICS | 81 of 97 | 100.0% |
-| **Total** | **720 of 918** | **100.0%** |
+| Enterprise | 574 of 706 | 100.0% |
+| Mobile | 67 of 125 | 98.5% |
+| ICS | 87 of 104 | 98.9% |
+| **Total** | **728 of 935** | **99.7%** |
 
 "In-scope" excludes techniques formally marked out of scope in
 `out_of_scope_techniques.json`, each with a documented reason. Run

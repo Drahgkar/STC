@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T23:14:40.053316+00:00",
+  "generated_at": "2026-10-31T03:12:43.455217+00:00",
   "source": "https://github.com/mitre-attack/attack-stix-data",
   "note": "IDs are namespaced as '<domain>:<ATT&CK-ID>' because the same base ID does not always mean the same object across Enterprise/Mobile/ICS.",
   "tactics": {
@@ -5951,6 +5951,78 @@
         "enterprise-attack:TA0005"
       ]
     },
+    "enterprise-attack:T1696": {
+      "name": "Anti-Automation Evasion",
+      "is_subtechnique": false,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0005"
+      ]
+    },
+    "enterprise-attack:T1697": {
+      "name": "Steal Application Specific Passwords",
+      "is_subtechnique": false,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0006"
+      ]
+    },
+    "enterprise-attack:T1698": {
+      "name": "Indirect Prompt Injection",
+      "is_subtechnique": false,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0002"
+      ]
+    },
+    "enterprise-attack:T1699": {
+      "name": "Direct Prompt Injection",
+      "is_subtechnique": false,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0002"
+      ]
+    },
+    "enterprise-attack:T1608.007": {
+      "name": "AI Result Poisoning",
+      "is_subtechnique": true,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0042"
+      ]
+    },
+    "enterprise-attack:T1696.001": {
+      "name": "Automate CAPTCHA Completion",
+      "is_subtechnique": true,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0005"
+      ]
+    },
+    "enterprise-attack:T1696.002": {
+      "name": "Avoid CAPTCHA",
+      "is_subtechnique": true,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0005"
+      ]
+    },
+    "enterprise-attack:T1685.007": {
+      "name": "Impair Autonomous Defenses",
+      "is_subtechnique": true,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0112"
+      ]
+    },
+    "enterprise-attack:T1700": {
+      "name": "AI-Enabled Exfiltration",
+      "is_subtechnique": false,
+      "domain": "enterprise-attack",
+      "tactic_ids": [
+        "enterprise-attack:TA0010"
+      ]
+    },
     "mobile-attack:T1603": {
       "name": "Scheduled Task/Job",
       "is_subtechnique": false,
@@ -6311,6 +6383,14 @@
       "tactic_ids": [
         "mobile-attack:TA0030",
         "mobile-attack:TA0041"
+      ]
+    },
+    "mobile-attack:T1476": {
+      "name": "Deliver Malicious Application via Other Means",
+      "is_subtechnique": false,
+      "domain": "mobile-attack",
+      "tactic_ids": [
+        "mobile-attack:TA0027"
       ]
     },
     "mobile-attack:T1658": {
@@ -7044,14 +7124,6 @@
         "ics-attack:TA0103"
       ]
     },
-    "ics-attack:T0807": {
-      "name": "Command-Line Interface",
-      "is_subtechnique": false,
-      "domain": "ics-attack",
-      "tactic_ids": [
-        "ics-attack:TA0104"
-      ]
-    },
     "ics-attack:T0861": {
       "name": "Point & Tag Identification",
       "is_subtechnique": false,
@@ -7123,14 +7195,6 @@
       "domain": "ics-attack",
       "tactic_ids": [
         "ics-attack:TA0100"
-      ]
-    },
-    "ics-attack:T0853": {
-      "name": "Scripting",
-      "is_subtechnique": false,
-      "domain": "ics-attack",
-      "tactic_ids": [
-        "ics-attack:TA0104"
       ]
     },
     "ics-attack:T0888": {
@@ -7756,6 +7820,78 @@
       "domain": "ics-attack",
       "tactic_ids": [
         "ics-attack:TA0110"
+      ]
+    },
+    "ics-attack:T1701.003": {
+      "name": "Unix Shell",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T1701.006": {
+      "name": "JavaScript",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T1701.005": {
+      "name": "Python",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T0869.002": {
+      "name": "Publish/Subscribe Protocols",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0101"
+      ]
+    },
+    "ics-attack:T1701": {
+      "name": "Command and Scripting Interpreter",
+      "is_subtechnique": false,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T1701.001": {
+      "name": "PowerShell",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T1701.002": {
+      "name": "Windows Command Shell",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T1701.004": {
+      "name": "Visual Basic",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0104"
+      ]
+    },
+    "ics-attack:T0869.001": {
+      "name": "DNS",
+      "is_subtechnique": true,
+      "domain": "ics-attack",
+      "tactic_ids": [
+        "ics-attack:TA0101"
       ]
     }
   },

@@ -44,10 +44,20 @@ tagged releases.
   and T1565.002 (Transmitted Data Manipulation) are now out of scope,
   each with a written reason.
 
+- `mitre_reference.json` rebuilt from MITRE ATT&CK v20.0. The deprecated
+  ICS techniques T0807 (Command-Line Interface) and T0853 (Scripting)
+  are replaced by T1701 (Command and Scripting Interpreter) and its
+  sub-techniques. New v20.0 techniques are mapped where MITRE's
+  detection strategies name events this catalog's sources record
+  (T1697, T1700, ICS T1701.001-.006 except .003, and ICS T0869.001 and
+  .002), or marked out of scope with a reason (T1696, T1698, T1699,
+  T1685.007). ICS T1701.003 and Mobile T1476 stay open in
+  `research_needed.json`.
+
 - Initial public release of the coverage catalog: 152 log sources
-  across 40 platforms, mapped to 720 of 918 MITRE ATT&CK techniques
-  (100% of in-scope techniques) across the Enterprise, Mobile, and ICS
-  domains.
+  across 40 platforms, mapped to 728 of 935 MITRE ATT&CK v20.0
+  techniques (99.7% of in-scope techniques) across the Enterprise,
+  Mobile, and ICS domains.
 - `stc_map.html`, an expandable-tree visualization of the
   catalog with search, a technique-to-source cross-reference panel,
   links to the official MITRE ATT&CK page for each technique, the STC
@@ -61,7 +71,7 @@ tagged releases.
 - `ingest_mitre_stix.py` for rebuilding `mitre_reference.json` from
   MITRE's official STIX data, and `fetch_reference.sh` for downloading
   the STIX bundles it reads.
-- `out_of_scope_techniques.json`, documenting 198 techniques
+- `out_of_scope_techniques.json`, documenting 205 techniques
   deliberately excluded from coverage, each with a specific reason.
 - `research_needed.json`, tracking open questions the catalog hasn't
   resolved yet.
