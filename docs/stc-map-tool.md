@@ -8,7 +8,7 @@ the file in a browser.
 ## Why a tree, not a graph
 
 Earlier versions of this tool used a force-directed radial graph.
-That approach broke down at the catalog's current scale: with 152
+That approach broke down at the catalog's current scale: with 153
 sources and over 700 covered techniques, a graph has a fixed amount of
 space to lay everything out in, and expanding more than a couple of
 branches at once produced overlapping nodes and crossing lines no

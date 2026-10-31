@@ -4212,6 +4212,51 @@
           },
           "status": "unknown"
         }
+      },
+      "cisa_icsnpp": {
+        "protocol_logs": {
+          "mitre_tactics": [
+            "ics-attack:TA0100",
+            "ics-attack:TA0102",
+            "ics-attack:TA0103",
+            "ics-attack:TA0104",
+            "ics-attack:TA0106",
+            "ics-attack:TA0107",
+            "ics-attack:TA0108",
+            "ics-attack:TA0109",
+            "ics-attack:TA0110"
+          ],
+          "mitre_techniques": [
+            "ics-attack:T0801",
+            "ics-attack:T0806",
+            "ics-attack:T0816",
+            "ics-attack:T0835",
+            "ics-attack:T0836",
+            "ics-attack:T0843",
+            "ics-attack:T0845",
+            "ics-attack:T0846",
+            "ics-attack:T0846.002",
+            "ics-attack:T0848",
+            "ics-attack:T0858",
+            "ics-attack:T0859",
+            "ics-attack:T0861",
+            "ics-attack:T0868",
+            "ics-attack:T0872",
+            "ics-attack:T0877",
+            "ics-attack:T0888",
+            "ics-attack:T0889",
+            "ics-attack:T1692",
+            "ics-attack:T1692.001"
+          ],
+          "siem_labels": {
+            "google_secops": null,
+            "splunk_sourcetype": null,
+            "elastic_ecs_dataset": null,
+            "sentinel_table": null,
+            "wazuh_rule_group": null
+          },
+          "status": "unknown"
+        }
       }
     },
     "siemens_simatic": {

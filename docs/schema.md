@@ -122,7 +122,7 @@ list, using these rules:
 
 Where a label rests on a rule rather than on the parser's doc page,
 the matching `research_needed.json` entry is marked resolved and says
-so. Google SecOps labels are set for 116 of 152 sources. Each source
+so. Google SecOps labels are set for 116 of 153 sources. Each source
 left `null` has an unresolved `research_needed.json` entry naming the
 candidate parsers and what's left to verify.
 
@@ -145,7 +145,7 @@ each integration's data streams, using these rules:
   integration fits, or one source spans several streams (Zeek has one
   per log), leave the value `null` until someone picks.
 
-Elastic datasets are set for 83 of 152 sources. As with Google SecOps,
+Elastic datasets are set for 83 of 153 sources. As with Google SecOps,
 each source left `null` has an unresolved `research_needed.json` entry,
 and each label that rests on a rule or a beta integration has a
 resolved entry that says so.
@@ -175,7 +175,7 @@ using these rules:
   or table fits, or one source spans several tables, leave the value
   `null` until someone picks.
 
-Sentinel tables are set for 93 of 152 sources. Each source left `null`
+Sentinel tables are set for 93 of 153 sources. Each source left `null`
 has an unresolved `research_needed.json` entry, and each label that
 rests on a rule has a resolved entry that says so.
 
@@ -216,7 +216,7 @@ using these rules, in order:
   add-on or source type fits, or one source spans several source types
   (Zeek has one per log), leave the value `null` until someone picks.
 
-Splunk source types are set for 84 of 152 sources. As with the other
+Splunk source types are set for 84 of 153 sources. As with the other
 SIEMs, each source left `null` has an unresolved `research_needed.json`
 entry, and each label that rests on a rule has a resolved entry that
 says so.
@@ -250,7 +250,7 @@ using these rules:
 
 Wazuh 5.x drops rule groups in favor of integrations and Sigma
 `logsource` fields, so these values target 4.x only. Wazuh rule groups
-are set for 70 of 152 sources, with the same `research_needed.json`
+are set for 70 of 153 sources, with the same `research_needed.json`
 entries as the other SIEMs.
 
 Here's an example of a fully-mapped entry, for the Windows Sysmon
@@ -304,7 +304,7 @@ the raw JSON:
    SIEM gets this treatment, this is the specific line to change - it
    won't happen automatically just by editing the schema.
 3. **Every existing entry.** Adding a new key to the schema doesn't
-   retroactively add it to the 152 entries already in
+   retroactively add it to the 153 entries already in
    `data_sources.json`. For consistency, add the new key (as `null`,
    until verified) to every existing entry, not just new ones.
 4. **This document.** Update the key list above.

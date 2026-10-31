@@ -13,27 +13,27 @@ tagged releases.
 ### Added
 
 - Google SecOps ingestion labels (`siem_labels.google_secops`) for 116
-  of 152 log sources, each checked against Google's parser
-  documentation or confirmed by the maintainer. The 36 sources left
+  of 153 log sources, each checked against Google's parser
+  documentation or confirmed by the maintainer. The 37 sources left
   `null` each have an unresolved `research_needed.json` entry saying
   why.
 - Elastic data stream datasets (`siem_labels.elastic_ecs_dataset`) for
-  83 of 152 log sources, each checked against the Elastic Package
-  Registry. The 69 sources left `null` each have an unresolved
+  83 of 153 log sources, each checked against the Elastic Package
+  Registry. The 70 sources left `null` each have an unresolved
   `research_needed.json` entry saying why.
 - Microsoft Sentinel tables (`siem_labels.sentinel_table`) for 93 of
-  152 log sources, each checked against Microsoft's tables and
+  153 log sources, each checked against Microsoft's tables and
   connectors reference or the Azure-Sentinel connector definitions.
-  The 59 sources left `null` each have an unresolved
+  The 60 sources left `null` each have an unresolved
   `research_needed.json` entry saying why.
-- Splunk source types (`siem_labels.splunk_sourcetype`) for 84 of 152
+- Splunk source types (`siem_labels.splunk_sourcetype`) for 84 of 153
   log sources, each checked against Splunk add-on documentation,
   Splunk Connect for Syslog, or Splunk's pretrained source types. The
-  68 sources left `null` each have an unresolved `research_needed.json`
+  69 sources left `null` each have an unresolved `research_needed.json`
   entry saying why.
-- Wazuh 4.x rule groups (`siem_labels.wazuh_rule_group`) for 70 of 152
+- Wazuh 4.x rule groups (`siem_labels.wazuh_rule_group`) for 70 of 153
   log sources, each checked against the Wazuh 4.14.9 rule and decoder
-  files or Wazuh's documentation. The 82 sources left `null` each have
+  files or Wazuh's documentation. The 83 sources left `null` each have
   an unresolved `research_needed.json` entry saying why.
 
 - Coverage for the last 8 open in-scope techniques, each mapped from the
@@ -44,6 +44,12 @@ tagged releases.
   and T1565.002 (Transmitted Data Manipulation) are now out of scope,
   each with a written reason.
 
+- An open-source OT network source, `ot_network_monitoring/cisa_icsnpp`,
+  for CISA's ICSNPP Zeek protocol parsers (S7comm, Ethernet/IP-CIP,
+  Modbus, DNP3, BACnet, OPC UA and others), mapped to 20 ICS techniques
+  where MITRE's ICS analytics name a protocol operation that an ICSNPP
+  log records. Its five SIEM labels are `null`, each with a research
+  entry.
 - `mitre_reference.json` rebuilt from MITRE ATT&CK v20.0. The deprecated
   ICS techniques T0807 (Command-Line Interface) and T0853 (Scripting)
   are replaced by T1701 (Command and Scripting Interpreter) and its
@@ -54,7 +60,7 @@ tagged releases.
   T1685.007). ICS T1701.003 and Mobile T1476 stay open in
   `research_needed.json`.
 
-- Initial public release of the coverage catalog: 152 log sources
+- Initial public release of the coverage catalog: 153 log sources
   across 40 platforms, mapped to 728 of 935 MITRE ATT&CK v20.0
   techniques (99.7% of in-scope techniques) across the Enterprise,
   Mobile, and ICS domains.

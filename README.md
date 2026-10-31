@@ -11,7 +11,7 @@ directly: if you turn on this source, what do you actually get?
 
 ## What's in the box
 
-- **`data_sources.json`** — the coverage catalog. 152 log sources across
+- **`data_sources.json`** — the coverage catalog. 153 log sources across
   40 platforms, each mapped to specific MITRE ATT&CK techniques with a
   documented reasoning trail.
 - **`stc_map.html`** — an interactive, expandable tree for
@@ -108,7 +108,7 @@ Sysmon's operational log.
 in five specific SIEMs (Google SecOps, Splunk, Elastic, Microsoft
 Sentinel, and Wazuh), or `null` for whichever haven't been verified
 yet. A `null` means "not yet mapped," not "doesn't apply." Google
-SecOps labels are filled in for 116 of the 152 sources, each checked
+SecOps labels are filled in for 116 of the 153 sources, each checked
 against Google's parser list and documentation using the rules in
 `docs/schema.md`. Elastic datasets are filled in for 83 sources,
 checked against the Elastic Package Registry the same way, and

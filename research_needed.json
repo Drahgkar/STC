@@ -3393,6 +3393,43 @@
       "flagged_reason": "Mobile T1476 (Deliver Malicious Application via Other Means), back in ATT&CK v20.0. MITRE publishes no detection strategy for it. Mobile Threat Defense vendors (Zimperium, Lookout) describe sideloaded-app detection only in marketing material, which doesn't meet the evidence standard.",
       "what_to_verify": "Vendor technical documentation showing that an MTD or MDM source in this catalog logs a sideloaded (non-store) app install as a distinct event.",
       "status": "unresolved"
+    },
+    {
+      "source": "ot_network_monitoring/cisa_icsnpp/protocol_logs",
+      "flagged_reason": "No google_secops label set. No Google SecOps parser names ICSNPP or its protocols. BRO_JSON parses Zeek JSON logs, but whether it parses ICSNPP's protocol logs (s7comm.log, cip.log, ...) is unverified.",
+      "what_to_verify": "Whether BRO_JSON parses ICSNPP log types, or another parser does.",
+      "status": "unresolved"
+    },
+    {
+      "source": "ot_network_monitoring/cisa_icsnpp/protocol_logs",
+      "flagged_reason": "No splunk_sourcetype label set. The TA for Zeek 1.0.11 defines no source types for ICSNPP logs.",
+      "what_to_verify": "Whether a Splunk add-on names source types for ICSNPP logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "ot_network_monitoring/cisa_icsnpp/protocol_logs",
+      "flagged_reason": "No elastic_ecs_dataset label set. The zeek package's streams don't include ICSNPP logs, and no package in the Elastic Package Registry covers ICSNPP.",
+      "what_to_verify": "Whether an Elastic integration collects ICSNPP logs.",
+      "status": "unresolved"
+    },
+    {
+      "source": "ot_network_monitoring/cisa_icsnpp/protocol_logs",
+      "flagged_reason": "No sentinel_table label set. No Sentinel connector covers ICSNPP or open-source Zeek.",
+      "what_to_verify": "Whether a connector is added later.",
+      "status": "unresolved"
+    },
+    {
+      "source": "ot_network_monitoring/cisa_icsnpp/protocol_logs",
+      "flagged_reason": "No wazuh_rule_group label set. No Wazuh 4.14.9 rule file or decoder covers ICSNPP logs.",
+      "what_to_verify": "Whether custom decoders and rules are needed.",
+      "status": "unresolved"
+    },
+    {
+      "source": "ot_network_monitoring/cisa_icsnpp/protocol_logs",
+      "flagged_reason": "New source added 2026-10-30: CISA's ICSNPP Zeek protocol parsers (https://github.com/cisagov/icsnpp, BSD-3-Clause). Each technique is mapped where a MITRE ATT&CK v20.0 ICS analytic names the protocol operation and an ICSNPP README documents a log that records it: s7comm_upload_download.log (T0843, T0845, T0889), s7comm.log function_name 'PLC Stop'/'PLC Control' per scripts/consts.zeek @102a35c, CIP Start/Stop/Reset, DNP3 Start/Stop Application and Cold/Warm Restart, BACnet Reinitialize-Device, Omron FINS run_mode (T0858, T0816), modbus_detailed.log, bacnet_property.log, opcua_binary_write.log and CIP Set Attribute (T0836, T0806, T0835), dnp3_control.log SELECT/OPERATE (T1692, T1692.001, T0848), read operations (T0801, T0877), opcua_binary_browse.log (T0861), s7comm_read_szl.log, cip_identity.log, modbus_read_device_identification.log (T0888, T0868), ENIP List Identity and bacnet_discovery.log (T0846, T0846.002), roc_plus_login.log, opcua_binary_activate_session.log, C12.22 logon (T0859), GE-SRTP Clear Fault Table (T0872). Left off: T0843.002/.003, T0821, T0840 and firmware techniques, where the logs don't show the distinction MITRE's analytic depends on.",
+      "what_to_verify": "ICSNPP packages aren't part of default Zeek; each protocol parser is installed separately with zkg. Coverage applies only to the protocols whose parser is deployed.",
+      "status": "partially_resolved",
+      "resolution": "Mapped as described; the per-protocol deployment caveat stays open by design."
     }
   ]
 }

@@ -60,8 +60,8 @@ usage: coverage_gap_report.py [-h] [--sources SOURCES] [--reference REFERENCE]
   collected         0  (0.0%)
   planned           0  (0.0%)
   not_collected     0  (0.0%)
-  unknown         152  (100.0%)
-  Total sources: 152
+  unknown         153  (100.0%)
+  Total sources: 153
 ```
 
 If a source has a status value outside the four expected ones, the
