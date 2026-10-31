@@ -36,9 +36,17 @@ tagged releases.
   files or Wazuh's documentation. The 82 sources left `null` each have
   an unresolved `research_needed.json` entry saying why.
 
+- Coverage for the last 8 open in-scope techniques, each mapped from the
+  event IDs that MITRE ATT&CK's own detection strategies name: T1685.003,
+  T1036.012, T1055.014, T1055.015, T1056.003, T1059.011, T1219.003, and
+  ICS T0862. Cisco IOS syslog and TACACS+ accounting now cover T1601
+  (Modify System Image) and its sub-techniques. T1451 (SIM Card Swap)
+  and T1565.002 (Transmitted Data Manipulation) are now out of scope,
+  each with a written reason.
+
 - Initial public release of the coverage catalog: 152 log sources
-  across 40 platforms, mapped to 712 of 918 MITRE ATT&CK techniques
-  (98.6% of in-scope techniques) across the Enterprise, Mobile, and ICS
+  across 40 platforms, mapped to 720 of 918 MITRE ATT&CK techniques
+  (100% of in-scope techniques) across the Enterprise, Mobile, and ICS
   domains.
 - `stc_map.html`, an expandable-tree visualization of the
   catalog with search, a technique-to-source cross-reference panel,
@@ -53,7 +61,7 @@ tagged releases.
 - `ingest_mitre_stix.py` for rebuilding `mitre_reference.json` from
   MITRE's official STIX data, and `fetch_reference.sh` for downloading
   the STIX bundles it reads.
-- `out_of_scope_techniques.json`, documenting 196 techniques
+- `out_of_scope_techniques.json`, documenting 198 techniques
   deliberately excluded from coverage, each with a specific reason.
 - `research_needed.json`, tracking open questions the catalog hasn't
   resolved yet.

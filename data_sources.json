@@ -148,6 +148,7 @@
             "enterprise-attack:T1218.013",
             "enterprise-attack:T1218.014",
             "enterprise-attack:T1218.015",
+            "enterprise-attack:T1219.003",
             "enterprise-attack:T1220",
             "enterprise-attack:T1222.001",
             "enterprise-attack:T1482",
@@ -252,11 +253,13 @@
         "system": {
           "mitre_tactics": [
             "enterprise-attack:TA0003",
-            "enterprise-attack:TA0004"
+            "enterprise-attack:TA0004",
+            "enterprise-attack:TA0112"
           ],
           "mitre_techniques": [
             "enterprise-attack:T1068",
-            "enterprise-attack:T1543"
+            "enterprise-attack:T1543",
+            "enterprise-attack:T1685.003"
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
@@ -439,6 +442,7 @@
             "enterprise-attack:T1036.008",
             "enterprise-attack:T1036.009",
             "enterprise-attack:T1036.011",
+            "enterprise-attack:T1036.012",
             "enterprise-attack:T1037.001",
             "enterprise-attack:T1037.003",
             "enterprise-attack:T1046",
@@ -453,9 +457,11 @@
             "enterprise-attack:T1055.011",
             "enterprise-attack:T1055.012",
             "enterprise-attack:T1055.013",
+            "enterprise-attack:T1055.015",
             "enterprise-attack:T1056",
             "enterprise-attack:T1056.001",
             "enterprise-attack:T1056.002",
+            "enterprise-attack:T1056.003",
             "enterprise-attack:T1056.004",
             "enterprise-attack:T1057",
             "enterprise-attack:T1059",
@@ -464,6 +470,7 @@
             "enterprise-attack:T1059.006",
             "enterprise-attack:T1059.007",
             "enterprise-attack:T1059.010",
+            "enterprise-attack:T1059.011",
             "enterprise-attack:T1069",
             "enterprise-attack:T1069.001",
             "enterprise-attack:T1069.002",
@@ -677,6 +684,7 @@
             "enterprise-attack:T1680",
             "enterprise-attack:T1685",
             "enterprise-attack:T1685.001",
+            "enterprise-attack:T1685.003",
             "enterprise-attack:T1685.005",
             "enterprise-attack:T1686",
             "enterprise-attack:T1686.003",
@@ -865,9 +873,12 @@
           "mitre_tactics": [
             "enterprise-attack:TA0001",
             "enterprise-attack:TA0003",
+            "enterprise-attack:TA0006",
+            "enterprise-attack:TA0009",
             "enterprise-attack:TA0040"
           ],
           "mitre_techniques": [
+            "enterprise-attack:T1056.003",
             "enterprise-attack:T1190",
             "enterprise-attack:T1491",
             "enterprise-attack:T1491.001",
@@ -1081,11 +1092,13 @@
         "syslog_messages": {
           "mitre_tactics": [
             "enterprise-attack:TA0002",
-            "enterprise-attack:TA0003"
+            "enterprise-attack:TA0003",
+            "enterprise-attack:TA0112"
           ],
           "mitre_techniques": [
             "enterprise-attack:T1059",
-            "enterprise-attack:T1543"
+            "enterprise-attack:T1543",
+            "enterprise-attack:T1685.003"
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
@@ -1119,6 +1132,7 @@
             "enterprise-attack:T1018",
             "enterprise-attack:T1020.001",
             "enterprise-attack:T1033",
+            "enterprise-attack:T1036.012",
             "enterprise-attack:T1037",
             "enterprise-attack:T1037.004",
             "enterprise-attack:T1046",
@@ -1128,9 +1142,12 @@
             "enterprise-attack:T1053.006",
             "enterprise-attack:T1055.008",
             "enterprise-attack:T1055.009",
+            "enterprise-attack:T1055.014",
+            "enterprise-attack:T1056.003",
             "enterprise-attack:T1057",
             "enterprise-attack:T1059.004",
             "enterprise-attack:T1059.006",
+            "enterprise-attack:T1059.011",
             "enterprise-attack:T1069",
             "enterprise-attack:T1069.001",
             "enterprise-attack:T1070.003",
@@ -1179,6 +1196,7 @@
             "enterprise-attack:T1668",
             "enterprise-attack:T1680",
             "enterprise-attack:T1685",
+            "enterprise-attack:T1685.003",
             "enterprise-attack:T1685.004",
             "enterprise-attack:T1685.006",
             "enterprise-attack:T1690"
@@ -1585,15 +1603,20 @@
             "enterprise-attack:TA0003",
             "enterprise-attack:TA0004",
             "enterprise-attack:TA0005",
-            "enterprise-attack:TA0006"
+            "enterprise-attack:TA0006",
+            "enterprise-attack:TA0011",
+            "enterprise-attack:TA0112"
           ],
           "mitre_techniques": [
             "enterprise-attack:T1014",
             "enterprise-attack:T1059",
+            "enterprise-attack:T1059.011",
             "enterprise-attack:T1098",
             "enterprise-attack:T1110",
+            "enterprise-attack:T1219.003",
             "enterprise-attack:T1543",
-            "enterprise-attack:T1547.006"
+            "enterprise-attack:T1547.006",
+            "enterprise-attack:T1685.003"
           ],
           "siem_labels": {
             "google_secops": "MACOS",
@@ -2410,6 +2433,9 @@
             "enterprise-attack:T1543",
             "enterprise-attack:T1599",
             "enterprise-attack:T1599.001",
+            "enterprise-attack:T1601",
+            "enterprise-attack:T1601.001",
+            "enterprise-attack:T1601.002",
             "enterprise-attack:T1602",
             "enterprise-attack:T1602.001",
             "enterprise-attack:T1602.002",
@@ -2443,7 +2469,10 @@
             "enterprise-attack:T1110.003",
             "enterprise-attack:T1110.004",
             "enterprise-attack:T1556",
-            "enterprise-attack:T1556.004"
+            "enterprise-attack:T1556.004",
+            "enterprise-attack:T1601",
+            "enterprise-attack:T1601.001",
+            "enterprise-attack:T1601.002"
           ],
           "siem_labels": {
             "google_secops": "CISCO_TACACS",
@@ -3854,10 +3883,12 @@
             "ics-attack:TA0103",
             "ics-attack:TA0104",
             "ics-attack:TA0107",
+            "ics-attack:TA0108",
             "ics-attack:TA0111"
           ],
           "mitre_techniques": [
             "ics-attack:T0851",
+            "ics-attack:T0862",
             "ics-attack:T0874"
           ],
           "siem_labels": {
@@ -3924,10 +3955,12 @@
             "ics-attack:TA0103",
             "ics-attack:TA0104",
             "ics-attack:TA0107",
+            "ics-attack:TA0108",
             "ics-attack:TA0111"
           ],
           "mitre_techniques": [
             "ics-attack:T0851",
+            "ics-attack:T0862",
             "ics-attack:T0874"
           ],
           "siem_labels": {
@@ -4564,6 +4597,7 @@
             "enterprise-attack:T1021.002",
             "enterprise-attack:T1029",
             "enterprise-attack:T1030",
+            "enterprise-attack:T1036.012",
             "enterprise-attack:T1041",
             "enterprise-attack:T1046",
             "enterprise-attack:T1048",
@@ -4655,6 +4689,7 @@
             "enterprise-attack:T1021.002",
             "enterprise-attack:T1029",
             "enterprise-attack:T1030",
+            "enterprise-attack:T1036.012",
             "enterprise-attack:T1041",
             "enterprise-attack:T1046",
             "enterprise-attack:T1048",

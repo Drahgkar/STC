@@ -20,7 +20,7 @@
       "flagged_reason": "T1601 (Modify System Image) and sub-techniques T1601.001/.002 describe firmware/OS image patching or downgrading on network devices - a real, documented attack pattern. Whether and how each vendor logs firmware/image change events to their standard syslog/system log varies by platform and was not verified in this session.",
       "what_to_verify": "Whether Cisco IOS syslog and Fortinet FortiOS logs specifically capture firmware/image upgrade, activation, or rollback events, distinct from general configuration change logging.",
       "status": "partially_resolved",
-      "resolution": "Confirmed via a Palo Alto Networks community forum thread: PAN-OS logs firmware/software update activity (including the exact update-server URL) via the SYSTEM log category, which is already an established source in this catalog - added T1601 there. No equally specific confirmation was found for Cisco IOS or Fortinet FortiOS firmware-logging conventions in this session, so those remain open."
+      "resolution": "Confirmed via a Palo Alto Networks community forum thread: PAN-OS logs firmware/software update activity (including the exact update-server URL) via the SYSTEM log category, which is already an established source in this catalog - added T1601 there. No equally specific confirmation was found for Cisco IOS or Fortinet FortiOS firmware-logging conventions in this session, so those remain open. Update 2026-10-30: Cisco IOS added. MITRE ATT&CK v20.0 detection strategy (https://github.com/mitre-attack/attack-stix-data) analytic 0482 names image-loading CLI commands ('copy tftp flash', 'boot system') and boot-variable changes. Cisco documents Configuration Change Notification and Logging, which sends each applied config command (including 'boot system') to syslog as %PARSER-5-CFGLOG_LOGGEDCMD when 'archive' / 'log config' / 'notify syslog' is enabled (off by default) (https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/syst-mgmt/b-system-management/m_cm-config-logger-0.html), and TACACS+ command accounting ('aaa accounting commands 15') records exec commands such as 'copy tftp flash' (https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/security/a1/sec-a1-cr-book/sec-cr-a1.html). T1601, T1601.001 and T1601.002 added to cisco_ios syslog and aaa_tacacs. FortiOS stays open: this catalog has no FortiOS system-event source (only traffic, utm_threat and vpn_ssl_ipsec), so closing it needs a new source."
     },
     {
       "source": "macos/endpoint_os/bsm_audit",
@@ -61,7 +61,8 @@
       "source": "(placement uncertain)",
       "flagged_reason": "T1685.003 (Modify or Spoof Tool UI) describes tampering with a security tool own displayed status/UI to deceive an analyst. By definition this deceives whoever is looking directly at that tool, so external log sources may not capture it distinctly from the tool tampering already covered by the parent T1685 evidence.",
       "what_to_verify": "Whether any specific log event distinguishes UI-spoofing from general tool tampering, or whether this genuinely has no distinct observable signature beyond what T1685 base already covers.",
-      "status": "unresolved"
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-30: MITRE ATT&CK v20.0 detection strategy (https://github.com/mitre-attack/attack-stix-data) analytics 0868-0870 detect a security tool's UI reporting healthy while its service or process has stopped, using Windows System EventCode 7036, Sysmon EventCode 1, auditd execve, Linux syslog service-stop messages and the macOS unified log. Added to windows system and sysmon, linux audit_daemon and syslog_messages, and macos unified_log."
     },
     {
       "source": "(no existing source - potential future additions)",
@@ -74,7 +75,8 @@
       "source": "(placement uncertain)",
       "flagged_reason": "T1036.012 (Browser Fingerprint) describes malware evading a WEBSITE bot-detection mechanism by spoofing browser fingerprint data - this is arguably something a website operator observes about incoming traffic, not something the victim organization own endpoint/network logs would show about outbound activity.",
       "what_to_verify": "Whether this is genuinely observable from a victim-side log source, or only from the perspective of the site being targeted.",
-      "status": "unresolved"
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-30: observable from the victim side. MITRE ATT&CK v20.0 detection strategy (https://github.com/mitre-attack/attack-stix-data) analytics 2029-2032 detect a browser User-Agent sent by a non-browser process, using NSM http.log/conn.log, Sysmon EventCode 3 and 22, and auditd. Added to zeek and corelight protocol_logs (http.log user_agent field), windows sysmon and linux audit_daemon."
     },
     {
       "source": "(no existing source - potential future addition)",
@@ -94,18 +96,20 @@
       "source": "(no existing source - potential future addition)",
       "flagged_reason": "T0862 (ICS Supply Chain Compromise) describes compromise of OT hardware/firmware/software during manufacturing or the vendor supply chain. This catalog has no dedicated OT patch-management or vendor-software-delivery monitoring source (analogous to the Enterprise SCCM/Ansible-based partial resolution of T1195.002) that could observe a compromised update package before it reaches an OT asset.",
       "what_to_verify": "Whether OT-specific patch/firmware management platforms (e.g. vendor update servers, OT-specific SCCM-equivalents) produce auditable delivery logs that could provide partial coverage, similar to the Enterprise T1195.002 resolution.",
-      "status": "unresolved"
+      "status": "partially_resolved",
+      "resolution": "Partially resolved 2026-10-30: MITRE ATT&CK v20.0 detection strategy (https://github.com/mitre-attack/attack-stix-data) analytic 1863 detects a vendor update package that writes files outside its install manifest or spawns undocumented child processes, using Sysmon Event ID 11 and 2. Added to both ics_windows_hosts sysmon_where_deployed sources (conditional on Sysmon being validated for the deployment). Still open: analytics 2109 and 2189 compare device firmware hashes against vendor-published checksums, and no source in this catalog provides that."
     },
     {
       "source": "(no existing source - potential future addition)",
       "flagged_reason": "T1451 (SIM Card Swap) is a carrier/telco-level event (reassigning a phone number to a new physical SIM or eSIM). No source in this catalog has visibility into carrier-side account systems.",
       "what_to_verify": "Whether telco/carrier APIs (e.g. number-porting or SIM-change notification webhooks some carriers offer to enterprise customers) could provide this evidence, or whether it stays out of scope as carrier-side-only.",
-      "status": "unresolved"
+      "status": "resolved",
+      "resolution": "Resolved 2026-10-30: marked out of scope. The swap happens at the carrier; MITRE ATT&CK v20.0 detection strategy (https://github.com/mitre-attack/attack-stix-data) analytics 1747/1748 only correlate general MDM state with IdP sign-ins, and no log event records the swap itself."
     },
     {
       "source": "(placement uncertain)",
       "flagged_reason": "T1430.001 (Remote Device Management Services) - abuse of legitimate device-finding/remote-management APIs (e.g. Find My Device) for location tracking. Possible MDM angle (the legitimate remote-locate feature itself is an MDM capability) was not directly confirmed as a distinct abuse-detection signal in this session.",
-      "what_to_verify": "Whether MDM audit logs distinguish legitimate admin-initiated device-location requests from abuse of the same underlying OS capability by a malicious actor with stolen credentials.",
+      "what_to_verify": "Whether MDM audit logs distinguish legitimate admin-initiated device-location requests from abuse of the same underlying OS capability by a malicious actor with stolen credentials. Lead found 2026-10-30: Microsoft Graph's Intune remoteActionAudit resource records remote actions with an action value of locateDevice, the initiating user and the request time (https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-remoteactionaudit?view=graph-rest-beta). That is a separate Graph resource from the Intune audit log this catalog covers, so it doesn't meet the evidence standard for that source yet. T1430.001 stays out of scope through its parent T1430 until a source carries it.",
       "status": "unresolved"
     },
     {

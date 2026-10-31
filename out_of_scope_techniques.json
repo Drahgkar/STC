@@ -123,6 +123,8 @@
     "mobile-attack:T1623": "Command and Scripting Interpreter - on-device local shell execution (not via ADB/USB) is not covered by Android SecurityLog's confirmed ADB-command-only evidence",
     "mobile-attack:T1623.001": "Unix Shell - same reasoning as parent T1623",
     "mobile-attack:T1521.003": "SSL Pinning - describes an app's own defensive behavior being bypassed by an attacker; the bypass itself is an internal app-level event, not confirmed observable",
-    "mobile-attack:T1407": "Download New Code at Runtime - an internal app-runtime behavior; no source in this catalog has confirmed evidence of detecting this specific pattern distinct from general app-risk scanning"
+    "mobile-attack:T1407": "Download New Code at Runtime - an internal app-runtime behavior; no source in this catalog has confirmed evidence of detecting this specific pattern distinct from general app-risk scanning",
+    "mobile-attack:T1451": "SIM Card Swap - the swap happens in the mobile carrier's account systems. No source in this catalog records it; MITRE ATT&CK v20.0 analytics 1747/1748 only correlate general MDM device state with IdP sign-ins, and no log event records the swap itself",
+    "enterprise-attack:T1565.002": "Transmitted Data Manipulation - spotting it means comparing data before and after transit, which a log entry can't capture; MITRE ATT&CK v20.0 analytics 0702-0704 name only ordinary network-connection and file-metadata events that don't show the manipulation"
   }
 }
