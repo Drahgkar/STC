@@ -95,6 +95,13 @@ looks authoritative and isn't. Fill in a value only once you've
 confirmed it against that SIEM's real documentation or your own
 working query.
 
+**A vendor with several products means the current one.** When a
+source names a vendor that sells several products or collection paths
+(Ping Identity, Proofpoint, Mimecast, Claroty), STC assumes the
+vendor's current product or connector. The source's resolved
+`research_needed.json` entry names the assumption, so you can change
+the value if your environment uses a different product.
+
 `google_secops` holds the source's **ingestion label**: the log type
 that selects the Google SecOps parser, such as `WINEVTLOG` or
 `WINDOWS_SYSMON`. Search it as `metadata.log_type`. Several sources can
@@ -115,32 +122,165 @@ list, using these rules:
 
 Where a label rests on a rule rather than on the parser's doc page,
 the matching `research_needed.json` entry is marked resolved and says
-so. Google SecOps labels are set for 103 of 152 sources. Each source
+so. Google SecOps labels are set for 116 of 152 sources. Each source
 left `null` has an unresolved `research_needed.json` entry naming the
-candidate parsers and what's left to verify. The other four keys are
-still `null` everywhere.
+candidate parsers and what's left to verify.
 
-Here's an illustrative example of what a fully-mapped entry looks
-like once verified across all five SIEMs, for the Windows Sysmon
-operational log (`windows/endpoint_os/sysmon`). Only the
-`google_secops` value is set in `data_sources.json` today; the other
-four are shown purely to demonstrate the shape a completed mapping
-takes:
+`elastic_ecs_dataset` holds the source's **data stream dataset**: the
+`data_stream.dataset` of the Elastic integration that collects it,
+such as `system.security` or `windows.sysmon_operational`. Search it as
+`event.dataset`. It's the dataset name only, not an index pattern like
+`logs-windows.sysmon_operational-*`. Values come from the
+[Elastic Package Registry](https://epr.elastic.co/search), which lists
+each integration's data streams, using these rules:
+
+- **A data stream that names the log wins.** For example, the Windows
+  Security log uses `system.security`.
+- **A product's single generic stream covers all its logs.** When an
+  integration has one logs stream for the whole product, such as
+  `panw.panos`, every log from that product uses it.
+- **Syslog falls back to `system.syslog`.** Linux logs that arrive
+  over syslog with no stream of their own use `system.syslog`.
+- **Two candidate streams means `null`.** When more than one stream or
+  integration fits, or one source spans several streams (Zeek has one
+  per log), leave the value `null` until someone picks.
+
+Elastic datasets are set for 83 of 152 sources. As with Google SecOps,
+each source left `null` has an unresolved `research_needed.json` entry,
+and each label that rests on a rule or a beta integration has a
+resolved entry that says so.
+
+`sentinel_table` holds the **Log Analytics table** the source lands in
+when Microsoft Sentinel collects it, such as `SecurityEvent` or
+`CommonSecurityLog`. Search it by using the table name as the first
+line of a KQL query. Values come from Microsoft's
+[tables and connectors reference](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-tables-connectors-reference)
+and the connector definitions in the
+[Azure-Sentinel repository](https://github.com/Azure/Azure-Sentinel),
+using these rules:
+
+- **The product's Sentinel connector wins.** If Sentinel has a data
+  connector for the product, use the table it writes. For example, the
+  Windows Security log uses `SecurityEvent` through the Windows
+  Security Events via AMA connector.
+- **Deprecated device connectors keep their table.** Many CEF and
+  syslog device connectors are marked deprecated. Microsoft documents
+  collecting those devices with the generic CEF via AMA or Syslog via
+  AMA connector instead, which writes the same `CommonSecurityLog` or
+  `Syslog` table.
+- **No connector means the Azure Monitor Agent default.** Windows
+  event log channels go to `Event`, and syslog messages go to `Syslog`.
+  Text log files go to a table the analyst names, so those stay `null`.
+- **Two candidate tables means `null`.** When more than one connector
+  or table fits, or one source spans several tables, leave the value
+  `null` until someone picks.
+
+Sentinel tables are set for 93 of 152 sources. Each source left `null`
+has an unresolved `research_needed.json` entry, and each label that
+rests on a rule has a resolved entry that says so.
+
+`splunk_sourcetype` holds the **source type** the source is indexed
+under, such as `XmlWinEventLog` or `pan:traffic`. Search it as
+`sourcetype=`. It's the source type only, not the `source` field,
+which for Windows event logs names the channel (for example,
+`XmlWinEventLog:Security`). Values come from the documentation of the
+Splunk add-ons on [Splunkbase](https://splunkbase.splunk.com/), most
+of which Splunk publishes at `splunk.github.io/splunk-add-on-for-<product>`,
+using these rules, in order:
+
+- **The product's Splunk-supported add-on wins.** For example, the
+  Okta System Log uses `OktaIM2:log` from the Splunk Add-on for Okta
+  Identity Cloud.
+- **Windows event log channels use `XmlWinEventLog`.** Since version
+  6.0.0, the Splunk Add-on for Microsoft Windows renders event log
+  inputs as XML by default, for any channel. The exception is a channel
+  that a product add-on names its own source type for, such as Hyper-V.
+- **Splunk Connect for Syslog covers syslog devices.** When no
+  Splunk-supported add-on exists, use the source type that
+  [Splunk Connect for Syslog](https://github.com/splunk/splunk-connect-for-syslog)
+  documents for the product, such as `pan:traffic` or `fgt_traffic`.
+- **A vendor-built add-on counts when the vendor documents it.** An
+  add-on built by the product's vendor counts if the vendor's own docs
+  name the source type. Community-built add-ons don't count.
+- **Pretrained source types cover the rest.** Splunk's
+  [pretrained source types](https://help.splunk.com/en/data-management/onboard-data-to-splunk-enterprise/get-data-in/10.6/configure-source-types/list-of-pretrained-source-types)
+  name some logs directly, such as `cups_access` and `asterisk_cdr`.
+  Linux logs that arrive over syslog with no source type of their own
+  use `syslog`.
+- **A product's single source type covers all its logs.** When the
+  add-on has one source type for the whole product, such as
+  `cisco:asa`, every log from that product uses it. When an add-on
+  offers several formats of the same log, use the one for the
+  product's default format, such as `apache:access:combined`.
+- **Two candidate source types means `null`.** When more than one
+  add-on or source type fits, or one source spans several source types
+  (Zeek has one per log), leave the value `null` until someone picks.
+
+Splunk source types are set for 84 of 152 sources. As with the other
+SIEMs, each source left `null` has an unresolved `research_needed.json`
+entry, and each label that rests on a rule has a resolved entry that
+says so.
+
+`wazuh_rule_group` holds the **rule group** that Wazuh 4.x tags the
+source's alerts with, such as `windows_security` or `sysmon`. Search
+it as `rule.groups`. A rule carries several groups; this is the most
+specific one that names the product or log, not a shared group like
+`windows` that other sources also carry. Values come from the rule
+and decoder files in the
+[Wazuh 4.14.9 ruleset](https://github.com/wazuh/wazuh/tree/v4.14.9/ruleset),
+using these rules:
+
+- **The product's rule file wins.** If a rule file targets the
+  product or log, use its group. For example, the Windows Security log
+  uses `windows_security` from `0580-win-security_rules.xml`, and
+  CloudTrail uses `aws_cloudtrail`.
+- **A product's single rule file covers all its logs.** When one rule
+  file covers the whole product, such as `paloalto` or `gcp`, its
+  grouping rule tags every decoded event from that product, so every
+  log from the product uses it.
+- **Other Windows event channels use `windows`.** Every event from
+  the eventchannel decoder gets the `windows` group, so a channel with
+  no rule file of its own, such as Task Scheduler, uses that.
+- **Syslog falls back to `syslog`.** Linux logs that arrive over
+  syslog with no decoder or rule file of their own use `syslog`.
+- **Two candidate groups means `null`.** When more than one rule file
+  fits, or a rule file exists but its decoder doesn't match the log
+  (Wazuh's VMware decoders expect ESX-era program names), leave the
+  value `null` until someone picks.
+
+Wazuh 5.x drops rule groups in favor of integrations and Sigma
+`logsource` fields, so these values target 4.x only. Wazuh rule groups
+are set for 70 of 152 sources, with the same `research_needed.json`
+entries as the other SIEMs.
+
+Here's an example of a fully-mapped entry, for the Windows Sysmon
+operational log (`windows/endpoint_os/sysmon`), as set in
+`data_sources.json`:
 
 ```json
 {
   "google_secops": "WINDOWS_SYSMON",
-  "splunk_sourcetype": "XmlWinEventLog:Microsoft-Windows-Sysmon/Operational",
-  "elastic_ecs_dataset": "logs-windows.sysmon_operational-*",
-  "sentinel_table": "Microsoft-Windows-Sysmon/Operational",
-  "wazuh_rule_group": "Microsoft-Windows-Sysmon/Operational"
+  "splunk_sourcetype": "XmlWinEventLog",
+  "elastic_ecs_dataset": "windows.sysmon_operational",
+  "sentinel_table": "Event",
+  "wazuh_rule_group": "sysmon"
 }
 ```
 
+Several Windows logs share these values, the same way they share
+`WINEVTLOG`. Splunk's
+[Sysmon add-on](https://splunk.github.io/splunk-add-on-for-microsoft-sysmon/Sourcetypes/)
+uses the `XmlWinEventLog` source type for every XML event channel; the
+event's `source` field names the channel. Windows event logs collected
+by the Azure Monitor Agent go to the
+[`Event` table](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/data-collection-windows-events).
+Wazuh 4.x tags its Sysmon rules with the `windows` and `sysmon` groups,
+which you search as `rule.groups`.
+
 Note that Sysmon's Splunk sourcetype differs by platform — the value
 above is for Windows specifically. The separate `linux/endpoint_os/sysmon_linux`
-entry would use `sysmon:linux` instead, not the Windows value shown
-here.
+entry uses `sysmon:linux`, from the
+[Splunk Add-on for Sysmon for Linux](https://docs.splunk.com/Documentation/AddOns/released/NixSysmon/Sourcetypes).
 
 #### Adding or removing a SIEM
 

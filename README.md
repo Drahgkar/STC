@@ -108,10 +108,15 @@ Sysmon's operational log.
 in five specific SIEMs (Google SecOps, Splunk, Elastic, Microsoft
 Sentinel, and Wazuh), or `null` for whichever haven't been verified
 yet. A `null` means "not yet mapped," not "doesn't apply." Google
-SecOps labels are filled in for 103 of the 152 sources, each checked
+SecOps labels are filled in for 116 of the 152 sources, each checked
 against Google's parser list and documentation using the rules in
-`docs/schema.md`; the other four SIEMs are still
-all `null`. Each source left `null` for Google SecOps has an entry in
+`docs/schema.md`. Elastic datasets are filled in for 83 sources,
+checked against the Elastic Package Registry the same way, and
+Microsoft Sentinel tables for 93, checked against Microsoft's
+connector documentation. Splunk source types are filled in for 84,
+checked against Splunk's add-on documentation, and Wazuh 4.x rule
+groups for 70, checked against the Wazuh ruleset. Each source left
+`null` for any SIEM has an entry in
 `research_needed.json` that says why. See
 [`docs/schema.md`](docs/schema.md) for what each value means.
 

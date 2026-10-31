@@ -242,10 +242,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "system.security",
+            "sentinel_table": "SecurityEvent",
+            "wazuh_rule_group": "windows_security"
           },
           "status": "unknown"
         },
@@ -260,10 +260,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "system.system",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows_system"
           },
           "status": "unknown"
         },
@@ -276,10 +276,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "system.application",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows_application"
           },
           "status": "unknown"
         },
@@ -357,10 +357,10 @@
           ],
           "siem_labels": {
             "google_secops": "POWERSHELL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "windows.powershell_operational",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "powershell"
           },
           "status": "unknown"
         },
@@ -374,11 +374,11 @@
             "enterprise-attack:T1053.005"
           ],
           "siem_labels": {
-            "google_secops": null,
-            "splunk_sourcetype": null,
+            "google_secops": "WINEVTLOG",
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         },
@@ -685,10 +685,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_SYSMON",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "windows.sysmon_operational",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "sysmon"
           },
           "status": "unknown"
         },
@@ -711,10 +711,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_NET_POLICY_SERVER",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "SecurityEvent",
+            "wazuh_rule_group": "windows_security"
           },
           "status": "unknown"
         }
@@ -733,10 +733,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_DHCP",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "splunk_sourcetype": "DhcpSrvLog",
+            "elastic_ecs_dataset": "microsoft_dhcp.log",
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "dhcp"
           },
           "status": "unknown"
         },
@@ -752,11 +752,11 @@
             "enterprise-attack:T1557.003"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_DHCP",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "elastic_ecs_dataset": "microsoft_dhcp.log",
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "dhcp"
           },
           "status": "unknown"
         },
@@ -769,10 +769,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_DHCP",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         }
@@ -790,10 +790,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_DNS",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "microsoft_dnsserver.audit",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         },
@@ -836,10 +836,10 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         },
@@ -852,10 +852,10 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         }
@@ -878,10 +878,10 @@
           ],
           "siem_labels": {
             "google_secops": "IIS",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "ms:iis:auto",
+            "elastic_ecs_dataset": "iis.access",
+            "sentinel_table": "W3CIISLog",
+            "wazuh_rule_group": "accesslog"
           },
           "status": "unknown"
         },
@@ -898,7 +898,7 @@
           "siem_labels": {
             "google_secops": null,
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "elastic_ecs_dataset": "iis.error",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -922,7 +922,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "msftp"
           },
           "status": "unknown"
         }
@@ -950,10 +950,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_AD",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         },
@@ -965,11 +965,11 @@
             "enterprise-attack:T1091"
           ],
           "siem_labels": {
-            "google_secops": null,
-            "splunk_sourcetype": null,
+            "google_secops": "WINEVTLOG",
+            "splunk_sourcetype": "XmlWinEventLog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         }
@@ -986,11 +986,11 @@
             "enterprise-attack:T1673"
           ],
           "siem_labels": {
-            "google_secops": null,
-            "splunk_sourcetype": null,
+            "google_secops": "WINDOWS_HYPERV",
+            "splunk_sourcetype": "WinEventLog:Microsoft-Windows-Hyper-V-VMMS-Operational",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         },
@@ -1004,11 +1004,11 @@
             "enterprise-attack:T1611"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "WINDOWS_HYPERV",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "windows"
           },
           "status": "unknown"
         }
@@ -1071,10 +1071,10 @@
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "linux_secure",
+            "elastic_ecs_dataset": "system.auth",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "syslog"
           },
           "status": "unknown"
         },
@@ -1089,10 +1089,10 @@
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "syslog",
+            "elastic_ecs_dataset": "system.syslog",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "syslog"
           },
           "status": "unknown"
         },
@@ -1185,10 +1185,10 @@
           ],
           "siem_labels": {
             "google_secops": "AUDITD",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "splunk_sourcetype": "linux_audit",
+            "elastic_ecs_dataset": "auditd_manager.auditd",
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "audit"
           },
           "status": "unknown"
         },
@@ -1202,10 +1202,10 @@
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "syslog",
+            "elastic_ecs_dataset": "system.syslog",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "cron"
           },
           "status": "unknown"
         },
@@ -1220,10 +1220,10 @@
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "syslog",
+            "elastic_ecs_dataset": "system.syslog",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "linuxkernel"
           },
           "status": "unknown"
         },
@@ -1262,10 +1262,10 @@
           ],
           "siem_labels": {
             "google_secops": "LINUX_SYSMON",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "sysmon:linux",
+            "elastic_ecs_dataset": "sysmon_linux.log",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "syslog"
           },
           "status": "unknown"
         },
@@ -1278,10 +1278,10 @@
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "syslog",
+            "elastic_ecs_dataset": "system.syslog",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "apparmor"
           },
           "status": "unknown"
         }
@@ -1300,10 +1300,10 @@
           ],
           "siem_labels": {
             "google_secops": "LINUX_DHCP",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "isc:dhcp",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "syslog"
           },
           "status": "unknown"
         },
@@ -1359,10 +1359,10 @@
           ],
           "siem_labels": {
             "google_secops": "BIND_DNS",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "isc:bind:query",
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "named"
           },
           "status": "unknown"
         },
@@ -1378,7 +1378,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "named"
           },
           "status": "unknown"
         },
@@ -1391,10 +1391,10 @@
           ],
           "siem_labels": {
             "google_secops": "NIX_SYSTEM",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "syslog",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "unbound"
           },
           "status": "unknown"
         }
@@ -1411,7 +1411,7 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "cups_access",
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
             "wazuh_rule_group": null
@@ -1427,7 +1427,7 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "cups_error",
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
             "wazuh_rule_group": null
@@ -1468,10 +1468,10 @@
           ],
           "siem_labels": {
             "google_secops": "NGINX",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "nginx:plus:access",
+            "elastic_ecs_dataset": "nginx.access",
+            "sentinel_table": "NGINX_CL",
+            "wazuh_rule_group": "nginx"
           },
           "status": "unknown"
         },
@@ -1487,10 +1487,10 @@
           ],
           "siem_labels": {
             "google_secops": "NGINX",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "nginx:plus:error",
+            "elastic_ecs_dataset": "nginx.error",
+            "sentinel_table": "NGINX_CL",
+            "wazuh_rule_group": "nginx"
           },
           "status": "unknown"
         },
@@ -1510,10 +1510,10 @@
           ],
           "siem_labels": {
             "google_secops": "APACHE",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "apache:access:combined",
+            "elastic_ecs_dataset": "apache.access",
+            "sentinel_table": "ApacheHTTPServer_CL",
+            "wazuh_rule_group": "apache"
           },
           "status": "unknown"
         },
@@ -1529,10 +1529,10 @@
           ],
           "siem_labels": {
             "google_secops": "APACHE",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "apache:error",
+            "elastic_ecs_dataset": "apache.error",
+            "sentinel_table": "ApacheHTTPServer_CL",
+            "wazuh_rule_group": "apache"
           },
           "status": "unknown"
         }
@@ -1600,7 +1600,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "macOS"
           },
           "status": "unknown"
         },
@@ -1716,9 +1716,9 @@
           ],
           "siem_labels": {
             "google_secops": "VMWARE_ESX",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "vmware:esxlog:vmkernel",
+            "elastic_ecs_dataset": "vsphere.log",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -1744,9 +1744,9 @@
           ],
           "siem_labels": {
             "google_secops": "VMWARE_ESX",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "vmware:esxlog:Hostd",
+            "elastic_ecs_dataset": "vsphere.log",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -1760,9 +1760,9 @@
           ],
           "siem_labels": {
             "google_secops": "VMWARE_ESX",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "vmware:esxlog:Vpxa",
+            "elastic_ecs_dataset": "vsphere.log",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -1787,8 +1787,8 @@
           "siem_labels": {
             "google_secops": "VMWARE_ESX",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "vsphere.log",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -1812,7 +1812,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "proxmox-ve"
           },
           "status": "unknown"
         },
@@ -1837,7 +1837,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "proxmox-ve"
           },
           "status": "unknown"
         },
@@ -1854,7 +1854,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "syslog"
           },
           "status": "unknown"
         }
@@ -1925,7 +1925,7 @@
           "siem_labels": {
             "google_secops": "KUBERNETES_AUDIT",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "elastic_ecs_dataset": "kubernetes.audit_logs",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -1941,9 +1941,9 @@
           "broad_spectrum": true,
           "siem_labels": {
             "google_secops": "OSSEC",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "ossec",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "CommonSecurityLog",
             "wazuh_rule_group": null
           },
           "status": "unknown",
@@ -1976,8 +1976,8 @@
           "siem_labels": {
             "google_secops": "CS_ALERTS",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "crowdstrike.alert",
+            "sentinel_table": "CrowdStrikeAlertsV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown",
@@ -1993,8 +1993,8 @@
           "siem_labels": {
             "google_secops": "CS_STREAM",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "crowdstrike.falcon",
+            "sentinel_table": "CommonSecurityLog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2038,9 +2038,9 @@
           ],
           "siem_labels": {
             "google_secops": "MICROSOFT_DEFENDER_ENDPOINT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "ms:defender:eventhub",
+            "elastic_ecs_dataset": "m365_defender.event",
+            "sentinel_table": "DeviceProcessEvents",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2056,9 +2056,9 @@
           ],
           "siem_labels": {
             "google_secops": "MICROSOFT_DEFENDER_ENDPOINT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "ms:defender:eventhub",
+            "elastic_ecs_dataset": "m365_defender.event",
+            "sentinel_table": "DeviceNetworkEvents",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2069,10 +2069,10 @@
           "broad_spectrum": true,
           "siem_labels": {
             "google_secops": "MICROSOFT_DEFENDER_ENDPOINT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "ms:defender:atp:alerts",
+            "elastic_ecs_dataset": "m365_defender.alert",
+            "sentinel_table": "SecurityAlert",
+            "wazuh_rule_group": "ms-graph"
           },
           "status": "unknown",
           "broad_spectrum_reason": "Same reasoning as CrowdStrike Falcon detections: Microsoft Defender for Endpoint alerts carry vendor-native MITRE ATT&CK tagging assigned per-alert, not a fixed technique set this catalog could enumerate without understating true coverage."
@@ -2166,10 +2166,10 @@
           ],
           "siem_labels": {
             "google_secops": "PAN_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "pan:traffic",
+            "elastic_ecs_dataset": "panw.panos",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "paloalto"
           },
           "status": "unknown"
         },
@@ -2187,10 +2187,10 @@
           ],
           "siem_labels": {
             "google_secops": "PAN_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "pan:threat",
+            "elastic_ecs_dataset": "panw.panos",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "paloalto"
           },
           "status": "unknown"
         },
@@ -2220,10 +2220,10 @@
           ],
           "siem_labels": {
             "google_secops": "PAN_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "pan:system",
+            "elastic_ecs_dataset": "panw.panos",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "paloalto"
           },
           "status": "unknown"
         },
@@ -2246,10 +2246,10 @@
           ],
           "siem_labels": {
             "google_secops": "PAN_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "pan:globalprotect",
+            "elastic_ecs_dataset": "panw.panos",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "paloalto"
           },
           "status": "unknown"
         }
@@ -2342,10 +2342,10 @@
           ],
           "siem_labels": {
             "google_secops": "FORTINET_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "fgt_traffic",
+            "elastic_ecs_dataset": "fortinet_fortigate.log",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "fortigate"
           },
           "status": "unknown"
         },
@@ -2360,10 +2360,10 @@
           ],
           "siem_labels": {
             "google_secops": "FORTINET_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "fgt_utm",
+            "elastic_ecs_dataset": "fortinet_fortigate.log",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "fortigate"
           },
           "status": "unknown"
         },
@@ -2386,10 +2386,10 @@
           ],
           "siem_labels": {
             "google_secops": "FORTINET_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "fgt_event",
+            "elastic_ecs_dataset": "fortinet_fortigate.log",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "fortigate"
           },
           "status": "unknown"
         }
@@ -2418,10 +2418,10 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "cisco:ios",
+            "elastic_ecs_dataset": "cisco_ios.log",
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "cisco_ios"
           },
           "status": "unknown"
         },
@@ -2447,10 +2447,10 @@
           ],
           "siem_labels": {
             "google_secops": "CISCO_TACACS",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "cisco:ios",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "sentinel_table": "Syslog",
+            "wazuh_rule_group": "cisco_ios"
           },
           "status": "unknown"
         }
@@ -2472,10 +2472,10 @@
           ],
           "siem_labels": {
             "google_secops": "CISCO_ASA_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "cisco:asa",
+            "elastic_ecs_dataset": "cisco_asa.log",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "cisco-asa"
           },
           "status": "unknown"
         },
@@ -2488,10 +2488,10 @@
           ],
           "siem_labels": {
             "google_secops": "CISCO_ASA_FIREWALL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "cisco:asa",
+            "elastic_ecs_dataset": "cisco_asa.log",
+            "sentinel_table": "CommonSecurityLog",
+            "wazuh_rule_group": "cisco-asa"
           },
           "status": "unknown"
         }
@@ -2514,9 +2514,9 @@
           ],
           "siem_labels": {
             "google_secops": "PULSE_SECURE_VPN",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "pulse:connectsecure",
+            "elastic_ecs_dataset": "pulse_connect_secure.log",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2529,10 +2529,10 @@
             "enterprise-attack:T1685"
           ],
           "siem_labels": {
-            "google_secops": null,
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "google_secops": "PULSE_SECURE_VPN",
+            "splunk_sourcetype": "pulse:connectsecure",
+            "elastic_ecs_dataset": "pulse_connect_secure.log",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2555,8 +2555,8 @@
           ],
           "siem_labels": {
             "google_secops": "F5_BIGIP_APM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "splunk_sourcetype": "f5:bigip:apm:syslog",
+            "elastic_ecs_dataset": "f5_bigip.log",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -2617,10 +2617,10 @@
           ],
           "siem_labels": {
             "google_secops": "AZURE_AD_SIGNIN",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "azure:monitor:aad",
+            "elastic_ecs_dataset": "azure.signinlogs",
+            "sentinel_table": "SigninLogs",
+            "wazuh_rule_group": "azure"
           },
           "status": "unknown"
         },
@@ -2650,10 +2650,10 @@
           ],
           "siem_labels": {
             "google_secops": "AZURE_AD_AUDIT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "azure:monitor:aad",
+            "elastic_ecs_dataset": "azure.auditlogs",
+            "sentinel_table": "AuditLogs",
+            "wazuh_rule_group": "azure"
           },
           "status": "unknown"
         },
@@ -2671,10 +2671,10 @@
           ],
           "siem_labels": {
             "google_secops": "MICROSOFT_RISK_DETECTIONS",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "azure:monitor:aad",
+            "elastic_ecs_dataset": "azure.identity_protection",
+            "sentinel_table": "AADUserRiskEvents",
+            "wazuh_rule_group": "ms-graph"
           },
           "status": "unknown"
         }
@@ -2719,9 +2719,9 @@
           ],
           "siem_labels": {
             "google_secops": "OKTA",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "OktaIM2:log",
+            "elastic_ecs_dataset": "okta.system",
+            "sentinel_table": "OktaSSO",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2745,10 +2745,10 @@
             "enterprise-attack:T1110.004"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PING_ONE",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "ping_one.audit",
+            "sentinel_table": "PingOne_AuditActivitiesV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2770,8 +2770,8 @@
           "siem_labels": {
             "google_secops": "DUO_AUTH",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "cisco_duo.auth",
+            "sentinel_table": "DuoAuthentication_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2789,8 +2789,8 @@
           "siem_labels": {
             "google_secops": "DUO_ADMIN",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "cisco_duo.admin",
+            "sentinel_table": "DuoActivity_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -2849,10 +2849,10 @@
           ],
           "siem_labels": {
             "google_secops": "AWS_CLOUDTRAIL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "aws:cloudtrail",
+            "elastic_ecs_dataset": "aws.cloudtrail",
+            "sentinel_table": "AWSCloudTrail",
+            "wazuh_rule_group": "aws_cloudtrail"
           },
           "status": "unknown"
         },
@@ -2867,10 +2867,10 @@
           ],
           "siem_labels": {
             "google_secops": "AWS_CLOUDTRAIL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "aws:cloudtrail",
+            "elastic_ecs_dataset": "aws.cloudtrail",
+            "sentinel_table": "AWSCloudTrail",
+            "wazuh_rule_group": "aws_cloudtrail"
           },
           "status": "unknown"
         },
@@ -2883,10 +2883,10 @@
           ],
           "siem_labels": {
             "google_secops": "AWS_CLOUDTRAIL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "aws:cloudtrail",
+            "elastic_ecs_dataset": "aws.cloudtrail",
+            "sentinel_table": "AWSCloudTrail",
+            "wazuh_rule_group": "aws_cloudtrail"
           },
           "status": "unknown"
         }
@@ -2965,10 +2965,10 @@
           ],
           "siem_labels": {
             "google_secops": "AZURE_ACTIVITY",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "azure:monitor:activity",
+            "elastic_ecs_dataset": "azure.activitylogs",
+            "sentinel_table": "AzureActivity",
+            "wazuh_rule_group": "azure"
           },
           "status": "unknown"
         }
@@ -2988,9 +2988,9 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "azure:monitor:resource",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "AzureDiagnostics",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3045,10 +3045,10 @@
           ],
           "siem_labels": {
             "google_secops": "GCP_CLOUDAUDIT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "google:gcp:pubsub:audit:admin_activity",
+            "elastic_ecs_dataset": "gcp.audit",
+            "sentinel_table": "GCPAuditLogs",
+            "wazuh_rule_group": "gcp"
           },
           "status": "unknown"
         },
@@ -3063,10 +3063,10 @@
           ],
           "siem_labels": {
             "google_secops": "GCP_CLOUDAUDIT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "google:gcp:pubsub:audit:data_access",
+            "elastic_ecs_dataset": "gcp.audit",
+            "sentinel_table": "GCPAuditLogs",
+            "wazuh_rule_group": "gcp"
           },
           "status": "unknown"
         },
@@ -3079,10 +3079,10 @@
           ],
           "siem_labels": {
             "google_secops": "GCP_CLOUDAUDIT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "google:gcp:pubsub:audit:policy_denied",
+            "elastic_ecs_dataset": "gcp.audit",
+            "sentinel_table": "GCPAuditLogs",
+            "wazuh_rule_group": "gcp"
           },
           "status": "unknown"
         },
@@ -3095,10 +3095,10 @@
           ],
           "siem_labels": {
             "google_secops": "GCP_CLOUDAUDIT",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "google:gcp:pubsub:audit:system_event",
+            "elastic_ecs_dataset": "gcp.audit",
+            "sentinel_table": "GCPAuditLogs",
+            "wazuh_rule_group": "gcp"
           },
           "status": "unknown"
         }
@@ -3156,10 +3156,10 @@
             "ics-attack:T0865"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "PROOFPOINT_ON_DEMAND",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "proofpoint_on_demand.message",
+            "sentinel_table": "ProofpointPODMessage_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3205,10 +3205,10 @@
             "ics-attack:T0865"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "MIMECAST_MAIL_V2",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "mimecast.siem_logs",
+            "sentinel_table": "Seg_Cg_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3243,9 +3243,9 @@
           ],
           "siem_labels": {
             "google_secops": "MICROSOFT_DEFENDER_MAIL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "ms:defender:eventhub",
+            "elastic_ecs_dataset": "m365_defender.event",
+            "sentinel_table": "EmailEvents",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3259,9 +3259,9 @@
           ],
           "siem_labels": {
             "google_secops": "MICROSOFT_DEFENDER_MAIL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "ms:defender:eventhub",
+            "elastic_ecs_dataset": "m365_defender.event",
+            "sentinel_table": "UrlClickEvents",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3285,10 +3285,10 @@
           ],
           "siem_labels": {
             "google_secops": "OFFICE_365",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "o365:management:activity",
+            "elastic_ecs_dataset": "o365.audit",
+            "sentinel_table": "OfficeActivity",
+            "wazuh_rule_group": "office365"
           },
           "status": "unknown"
         }
@@ -3314,9 +3314,9 @@
           ],
           "siem_labels": {
             "google_secops": "CYBERARK_PAM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "cyberark:epv:cef",
+            "elastic_ecs_dataset": "cyberarkpas.audit",
+            "sentinel_table": "CommonSecurityLog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3331,9 +3331,9 @@
           ],
           "siem_labels": {
             "google_secops": "CYBERARK_PAM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "splunk_sourcetype": "cyberark:epv:cef",
+            "elastic_ecs_dataset": "cyberarkpas.audit",
+            "sentinel_table": "CommonSecurityLog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3351,7 +3351,7 @@
           "siem_labels": {
             "google_secops": "HASHICORP",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "elastic_ecs_dataset": "hashicorp_vault.audit",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -3367,7 +3367,7 @@
           "siem_labels": {
             "google_secops": "HASHICORP",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "elastic_ecs_dataset": "hashicorp_vault.audit",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -3386,8 +3386,8 @@
           ],
           "siem_labels": {
             "google_secops": "VEEAM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "splunk_sourcetype": "veeam:vbr:syslog",
+            "elastic_ecs_dataset": "veeam.event",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -3406,8 +3406,8 @@
           ],
           "siem_labels": {
             "google_secops": "VEEAM",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "splunk_sourcetype": "veeam:vbr:syslog",
+            "elastic_ecs_dataset": "veeam.event",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -3426,10 +3426,10 @@
             "enterprise-attack:T1561.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "RUBRIK_SECURITY_CLOUD",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "Rubrik_Events_Data_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3449,8 +3449,8 @@
           "siem_labels": {
             "google_secops": "ATLASSIAN_CONFLUENCE",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "atlassian_confluence.audit",
+            "sentinel_table": "ConfluenceAuditLogs",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3467,10 +3467,10 @@
           ],
           "siem_labels": {
             "google_secops": "OFFICE_365",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "o365:management:activity",
+            "elastic_ecs_dataset": "o365.audit",
+            "sentinel_table": "OfficeActivity",
+            "wazuh_rule_group": "office365"
           },
           "status": "unknown"
         },
@@ -3507,7 +3507,7 @@
           ],
           "siem_labels": {
             "google_secops": "VARONIS",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "varonis:ta",
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
             "wazuh_rule_group": null
@@ -3650,7 +3650,7 @@
           ],
           "siem_labels": {
             "google_secops": null,
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "asterisk_cdr",
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
             "wazuh_rule_group": null
@@ -3710,10 +3710,10 @@
           ],
           "siem_labels": {
             "google_secops": "GITHUB",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "github:cloud:audit",
+            "elastic_ecs_dataset": "github.audit",
+            "sentinel_table": "GitHubAuditLogsV2_CL",
+            "wazuh_rule_group": "github"
           },
           "status": "unknown"
         }
@@ -3729,8 +3729,8 @@
           "siem_labels": {
             "google_secops": "GITLAB",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "gitlab.audit",
+            "sentinel_table": "Syslog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3749,8 +3749,8 @@
           "siem_labels": {
             "google_secops": "SLACK_AUDIT",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "slack.audit",
+            "sentinel_table": "SlackAuditV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3768,9 +3768,9 @@
           ],
           "siem_labels": {
             "google_secops": "SALESFORCE",
-            "splunk_sourcetype": null,
+            "splunk_sourcetype": "sfdc:logfile",
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "SalesforceServiceCloudV3_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -3790,8 +3790,8 @@
           ],
           "siem_labels": {
             "google_secops": "MICROSOFT_SQL",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
+            "splunk_sourcetype": "mssql:audit",
+            "elastic_ecs_dataset": "microsoft_sqlserver.audit",
             "sentinel_table": null,
             "wazuh_rule_group": null
           },
@@ -3842,10 +3842,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "system.security",
+            "sentinel_table": "SecurityEvent",
+            "wazuh_rule_group": "windows_security"
           },
           "status": "unknown"
         },
@@ -3862,10 +3862,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_SYSMON",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "windows.sysmon_operational",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "sysmon"
           },
           "status": "unknown"
         }
@@ -3912,10 +3912,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINEVTLOG",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "system.security",
+            "sentinel_table": "SecurityEvent",
+            "wazuh_rule_group": "windows_security"
           },
           "status": "unknown"
         },
@@ -3932,10 +3932,10 @@
           ],
           "siem_labels": {
             "google_secops": "WINDOWS_SYSMON",
-            "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "splunk_sourcetype": "XmlWinEventLog",
+            "elastic_ecs_dataset": "windows.sysmon_operational",
+            "sentinel_table": "Event",
+            "wazuh_rule_group": "sysmon"
           },
           "status": "unknown"
         }
@@ -4009,8 +4009,8 @@
           "siem_labels": {
             "google_secops": "NOZOMI_GUARDIAN",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "nozomi_networks.alert",
+            "sentinel_table": "CommonSecurityLog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4084,7 +4084,7 @@
             "google_secops": "DRAGOS",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "DragosAlerts_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4155,10 +4155,10 @@
             "ics-attack:T1695.002"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "CLAROTY_XDOME",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "elastic_ecs_dataset": "claroty_xdome.alert",
+            "sentinel_table": "CommonSecurityLog",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4246,7 +4246,7 @@
             "google_secops": "LOOKOUT_MOBILE_ENDPOINT_SECURITY",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "LookoutMtdV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4271,7 +4271,7 @@
             "google_secops": "LOOKOUT_MOBILE_ENDPOINT_SECURITY",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "LookoutMtdV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4297,7 +4297,7 @@
             "google_secops": "ZIMPERIUM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "ZimperiumThreatLogV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4322,7 +4322,7 @@
             "google_secops": "ZIMPERIUM",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
-            "sentinel_table": null,
+            "sentinel_table": "ZimperiumThreatLogV2_CL",
             "wazuh_rule_group": null
           },
           "status": "unknown"
@@ -4440,9 +4440,9 @@
           "siem_labels": {
             "google_secops": "AZURE_MDM_INTUNE",
             "splunk_sourcetype": null,
-            "elastic_ecs_dataset": null,
-            "sentinel_table": null,
-            "wazuh_rule_group": null
+            "elastic_ecs_dataset": "microsoft_intune.audit",
+            "sentinel_table": "IntuneAuditLogs",
+            "wazuh_rule_group": "ms-graph"
           },
           "status": "unknown"
         }
@@ -4469,7 +4469,7 @@
             "mobile-attack:T1642"
           ],
           "siem_labels": {
-            "google_secops": null,
+            "google_secops": "JAMF_PRO",
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
@@ -4500,8 +4500,8 @@
             "mobile-attack:T1642"
           ],
           "siem_labels": {
-            "google_secops": null,
-            "splunk_sourcetype": null,
+            "google_secops": "VMWARE_WORKSPACE_ONE",
+            "splunk_sourcetype": "vmware:airwatch",
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
             "wazuh_rule_group": null
@@ -4628,7 +4628,7 @@
             "splunk_sourcetype": null,
             "elastic_ecs_dataset": null,
             "sentinel_table": null,
-            "wazuh_rule_group": null
+            "wazuh_rule_group": "zeek"
           },
           "status": "unknown"
         }
